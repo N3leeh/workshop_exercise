@@ -1,0 +1,10 @@
+Um einen Service zu starten kannst du systemctl verwenden.
+Beispiel:
+	sudo systemctl start servicename.service
+Statt servicename musst du den gewünschten Service einsetzen
+
+In diesem Fall ist der Service instanziert, damit er von vielen verschiedenen Usern gestartet werden kann. 
+Du musst also in diesem Fall den Service mit deinem Usernamen aufrufen.
+
+Beispiel:
+    sudo systemctl start servicename@harald.service

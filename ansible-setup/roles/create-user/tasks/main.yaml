@@ -1,0 +1,25 @@
+---
+- name: Erstelle User buchstabe
+  ansible.builtin.user:
+    name: buchstabe
+    comment: "Workshop-User"
+    create_home: true
+    shell: /bin/bash
+    group: users
+    groups: jailed
+    password: '!'
+    password_lock: true
+    state: present
+
+- name: Erstelle User Variable
+  ansible.builtin.lineinfile:
+    create: true
+    insertafter: "EOF"
+    line: "export Buchstabe=s"
+    path: /home/buchstabe/.bashrc
+    state: present
+    owner: buchstabe
+    group: users
+    mode: '0644'
+
+...

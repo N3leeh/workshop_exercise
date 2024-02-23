@@ -1,0 +1,11 @@
+---
+- name: Erstelle Schnitzeljagd
+  hosts: localhost
+  gather_facts: true
+  become: true
+
+  # vars_files: /root/webtty-playground/vars/jailed.yml
+
+  roles:
+    - create-user
+    - setup-exercises

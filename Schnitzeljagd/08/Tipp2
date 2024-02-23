@@ -1,0 +1,6 @@
+Tipp 2:
+um eine Variable auszugeben kannst du echo verwenden
+Beispiel: 
+echo $variable
+
+Wichtig, du musst das dollarzeichen $ vor dem variablennamen setzen

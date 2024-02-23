@@ -1,0 +1,36 @@
+---
+- name: Erstelle Schnitzeljagd
+  ansible.builtin.copy:
+    src: "{{ src_dir }}"
+    owner: "{{ item }}"
+    group: users
+    # defaults to umask
+    #mode: '0750'
+    dest: "/home/{{ item }}/schnitzeljagd"
+  loop: "{{ teilnehmer }}"
+
+- name: Passe Berechtigungen für Aufgabe 5 an 
+  ansible.builtin.file:
+    path: "/home/{{ item }}/schnitzeljagd/05/Text"
+    owner: root
+    group: root
+    mode: '0700'
+  loop: "{{ teilnehmer }}"
+
+- name: Passe Berechtigungen für Aufgabe 6 an
+  ansible.builtin.file:
+    path: "/home/{{ item }}/schnitzeljagd/06/Unterordner"
+    state: directory
+    recurse: true
+    owner: root
+    group: root
+    mode: '0700'
+  loop: "{{ teilnehmer }}"
+
+- name: Erstelle Service für Aufgabe 7
+  ansible.builtin.template:
+    src: buchstabe@.service
+    dest: /etc/systemd/system/buchstabe@.service
+    owner: root
+    group: root
+    mode: '0644'

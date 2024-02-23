@@ -1,0 +1,3 @@
+Tipp 2:
+Um eine Datei mit nummerierten Zeilen auszugeben verwende den Befehl cat mit dem parameter n.
+Also so: cat -n Text

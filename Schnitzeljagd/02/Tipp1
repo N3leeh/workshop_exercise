@@ -1,0 +1,7 @@
+Tipp 1:
+Um eine Ausgabe eines Befehls in eine andere Datei zu schreiben kannst du das Größer-Symbol > verwenden.
+Beispiel:	
+cat Testdatei > Text
+
+oder hier notwendig: 
+ls > Text
