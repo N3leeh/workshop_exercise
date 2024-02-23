@@ -1,10 +1,4 @@
-Um einen Service zu starten kannst du systemctl verwenden.
-Beispiel:
-	sudo systemctl start servicename.service
-Statt servicename musst du den gewünschten Service einsetzen
+Du kannst mit dem Befehl grep arbeiten.
+Mit Hilfe von Grep kannst du rekursiv in allen im Ordner enthaltenen Dateien suchen.
 
-In diesem Fall ist der Service instanziert, damit er von vielen verschiedenen Usern gestartet werden kann. 
-Du musst also in diesem Fall den Service mit deinem Usernamen aufrufen.
-
-Beispiel:
-    sudo systemctl start servicename@harald.service
+Damit du die "Nicht"-Treffer anzeigt bekommst, gibt es eine Option bei grep. Diese findest du in der Manpage.
