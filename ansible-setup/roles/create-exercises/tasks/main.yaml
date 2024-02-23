@@ -6,12 +6,12 @@
     group: users
     # defaults to umask
     #mode: '0750'
-    dest: "/home/{{ item }}/schnitzeljagd"
+    dest: "/home/{{ item }}"
   loop: "{{ ssh_jailed_users }}"
 
 - name: Passe Berechtigungen für Aufgabe 5 an 
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/05/Text"
+    path: "/home/{{ item }}/Schnitzeljagd/05/Text"
     owner: root
     group: root
     mode: '0700'
@@ -19,7 +19,7 @@
 
 - name: Passe Berechtigungen für Aufgabe 6 an
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/06/Unterordner"
+    path: "/home/{{ item }}/Schnitzeljagd/06/Unterordner"
     state: directory
     recurse: true
     owner: root
