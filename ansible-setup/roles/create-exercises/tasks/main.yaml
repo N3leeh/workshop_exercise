@@ -7,7 +7,7 @@
     # defaults to umask
     #mode: '0750'
     dest: "/home/{{ item }}/schnitzeljagd"
-  loop: "{{ teilnehmer }}"
+  loop: "{{ ssh_jailed_users }}"
 
 - name: Passe Berechtigungen für Aufgabe 5 an 
   ansible.builtin.file:
@@ -15,7 +15,7 @@
     owner: root
     group: root
     mode: '0700'
-  loop: "{{ teilnehmer }}"
+  loop: "{{ ssh_jailed_users }}"
 
 - name: Passe Berechtigungen für Aufgabe 6 an
   ansible.builtin.file:
@@ -25,7 +25,7 @@
     owner: root
     group: root
     mode: '0700'
-  loop: "{{ teilnehmer }}"
+  loop: "{{ ssh_jailed_users }}"
 
 - name: Erstelle Service für Aufgabe 7
   ansible.builtin.template:

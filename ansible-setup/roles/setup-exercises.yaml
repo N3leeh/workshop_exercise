@@ -4,8 +4,11 @@
   gather_facts: true
   become: true
 
-  # vars_files: /root/webtty-playground/vars/jailed.yml
+  vars:
+    scr_dir: ~/workshop_exercise/Schnitzeljagd
+
+  vars_files: ~/webtty-playground/vars/jailed.yml
 
   roles:
     - create-user
-    - setup-exercises
+    - create-exercises
