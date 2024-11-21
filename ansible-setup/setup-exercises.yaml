@@ -5,7 +5,7 @@
   become: true
 
   vars:
-    src_dir: ~/workshop_exercise/Schnitzeljagd
+    src_dir: ~/workshop_exercise/schnitzeljagd
 
   vars_files: ~/webtty-playground/vars/jailed.yml
 

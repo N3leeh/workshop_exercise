@@ -1,0 +1,13 @@
+In diesem Ornder findest du einen weiteren Ornder mit dem Namen "unterordner".
+
+Gehe mit cd in diesen Unterordner. Dort findest du viele verschiedene Dateien und Ordner.
+Mit dem Befehl "ls" kannst du dir eine Liste der Dateien und Ordner ausgeben lassen.
+
+Deine erste Aufgabe ist es, die Ausgabe von ls in eine Datei namens "text" zu schreiben.
+Danach sollst du die Datei "text" ausgeben, dabei sollen die Zeilennummern nummeriert sein.
+
+Der fünfte Buchstabe des 28. Eintrags ist der zweite Buchstabe des Lösungswortes.
+
+Schreibe diesen in die Lösungsdatei. Danach fahre fort mit dem Ordner 03.
+
+Hilfe findest du hier wieder in den Dateien "tipp1" und "tipp2".

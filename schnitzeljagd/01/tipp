@@ -1,7 +1,7 @@
-Mit dem Befehl "cat" kannst du eine Datei ausgeben.
+Mit dem Befehl "cat" kannst du eine Datei ausgeben im Terminal.
 Mit dem Befehl "grep" kannst du filtern.
 Mit dem Pipe Symbol "|"  kannst du eine Ausgabe weiter geben und so die Befehle kombinieren.
 
 Du kannst aber auch nur mit dem Befehl grep arbeiten (lese in der Manpage!)
 
-Wie könntest du also in der Datei "Text" zum Beispiel nach "Buchstabe" suchen?
+Wie könntest du also in der Datei "text" zum Beispiel nach "Buchstabe" suchen?

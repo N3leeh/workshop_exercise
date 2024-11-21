@@ -1,5 +1,0 @@
-Wie du gemerkt hast hast du keinen Zugriff auf die Datei.
-
-Mit ls -la siehst du wer Besitzer der Datei ist. Das bist leider nicht du und du hast weder Lese- noch Schreibrechte.
-
-Um die Datei trotzdem zu lesen kannst du cat mit sudo Rechten aufrufen.

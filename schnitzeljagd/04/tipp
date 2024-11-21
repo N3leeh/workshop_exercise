@@ -1,5 +1,5 @@
 Um Dateien anzuzeigen kann man den Befehl ls verwenden.
 Allerdings werden dabei keine versteckten Dateien angezeigt.
-Um versteckte Dateien anzuzeigen muss man den Parameter a an ls mitgeben.
+Um versteckte Dateien anzuzeigen, muss der Befehl "ls" mit einem bestimmten Parameter aufgerufen werden.
 
 Mit cat kann man versteckte Dateien ganz normal ausgeben.

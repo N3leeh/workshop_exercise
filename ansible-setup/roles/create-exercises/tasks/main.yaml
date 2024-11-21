@@ -11,7 +11,7 @@
 
 - name: Passe Berechtigungen für Aufgabe 5 an 
   ansible.builtin.file:
-    path: "/home/{{ item }}/Schnitzeljagd/05/Text"
+    path: "/home/{{ item }}/schnitzeljagd/05/text"
     owner: root
     group: root
     mode: '0700'
@@ -19,7 +19,7 @@
 
 - name: Passe Berechtigungen für Aufgabe 6 an
   ansible.builtin.file:
-    path: "/home/{{ item }}/Schnitzeljagd/06/Unterordner"
+    path: "/home/{{ item }}/schnitzeljagd/06/unterordner"
     state: directory
     recurse: true
     owner: root
