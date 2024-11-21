@@ -1,0 +1,6 @@
+Tipp 2:
+Um eine Variable auszugeben kannst du z.B. den Befehl echo verwenden
+Beispiel: 
+echo $variable
+
+Wichtig: Beachte die Schreibweise. Bei Linux ist alles grundsätzlich casesensitiv
