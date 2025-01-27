@@ -6,7 +6,7 @@ Mit dem Befehl "ls" kannst du dir eine Liste der Dateien und Ordner ausgeben las
 Deine erste Aufgabe ist es, die Ausgabe von ls in eine Datei namens "text" zu schreiben.
 Danach sollst du die Datei "text" ausgeben, dabei sollen die Zeilennummern nummeriert sein.
 
-Der fünfte Buchstabe des 28. Eintrags ist der zweite Buchstabe des Lösungswortes.
+Der vierte Buchstabe des 28. Eintrags ist der siebte Buchstabe des Lösungswortes.
 
 Schreibe diesen in die Lösungsdatei. Danach fahre fort mit dem Ordner 03.
 
