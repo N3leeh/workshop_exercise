@@ -1,4 +1,0 @@
-Du kannst mit dem Befehl grep arbeiten.
-Mit Hilfe von grep kannst du rekursiv in allen im Ordner enthaltenen Dateien suchen.
-
-Damit du die "Nicht"-Treffer anzeigt bekommst, gibt es eine Option bei grep. Diese findest du in der Manpage.

@@ -1,4 +1,15 @@
 ---
+# Aufgaben  
+# 1. Mit Grep suchen
+# 2. Mit ls Ausgabeliste zu erstellen, nummerieren und in Datei umleiten
+# 3. Parameter für bestimmten Befehl suchen
+# 4. Versteckte Datei finden
+# 5. Alias finden und ausführen
+# 6. Nicht lesbare Datei lesen
+# 7. Nicht lesbaren Ordner bearbeiten
+# 8. Nach einem bestimmten File suchen
+# 9. Nach einer ENV-Var suchen
+
 - name: Erstelle Schnitzeljagd
   ansible.builtin.copy:
     src: "{{ src_dir }}"
@@ -9,28 +20,60 @@
     dest: "/home/{{ item }}"
   loop: "{{ ssh_jailed_users }}"
 
-- name: Passe Berechtigungen für Aufgabe 5 an 
+- name: Erstelle Alias für Aufgabe 5
+  ansible.builtin.lineinfile:
+    path: "/home/{{ item }}/.bashrc"
+    create: true
+    insertafter: "EOF"
+    line: "alias quallenfischersong=/tmp/quallenfischersong.sh"
+    state: present
+    owner: "{{ item }}"
+    group: users
+    mode: '0644'
+  loop: "{{ ssh_jailed_users }}"
+
+- name: lege das Skript ab für Aufgabe 5
+  ansible.builtin.copy:
+    src: quallenfischersong.sh
+    dest: /tmp/quallenfischersong.sh
+    owner: root
+    group: root
+    mode: "0755"
+    state: present
+
+- name: Passe Berechtigungen für Aufgabe 6 an 
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/05/text"
+    path: "/home/{{ item }}/schnitzeljagd/06/text"
     owner: root
     group: root
     mode: '0700'
   loop: "{{ ssh_jailed_users }}"
 
-- name: Passe Berechtigungen für Aufgabe 6 an
+- name: Passe Berechtigungen für Aufgabe 7 an
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/06/unterordner"
+    path: "/home/{{ item }}/schnitzeljagd/07/unterordner"
     state: directory
     recurse: true
     owner: root
     group: root
-    mode: '0700'
+    mode: '0000'
   loop: "{{ ssh_jailed_users }}"
 
-- name: Erstelle Service für Aufgabe 7
+- name: Passe Datei an für Aufgabe 8
+  ansible.builtin.file:
+    path: "/home/{{ item }}/schnitzeljagd/08/unterordner/Lorem/4/9/10/sometest"
+    owner: 500
+    group: 500
+  loop: "{{ ssh_jailed_users }}"
+
+- name: Erstelle Env-Service für Aufgabe 9
   ansible.builtin.template:
-    src: buchstabe@.service
-    dest: /etc/systemd/system/buchstabe@.service
-    owner: root
-    group: root
+    src: set_env@service
+    dest: /home/plankton/.config/systemd/user/set-env.service
+    owner: plankton
+    group: plankton
     mode: '0644'
+
+- name: Enable Linger User
+  ansible.builtin.commandd: 
+    cmd: "/usr/bin/loginctl enable-linger plankton"

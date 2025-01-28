@@ -1,10 +1,11 @@
 ---
-- name: Erstelle User buchstabe
+- name: Erstelle User plankton
   ansible.builtin.user:
-    name: buchstabe
-    comment: "Workshop-User"
+    name: plankton
+    comment: "Wo ist die Geheimformel?"
     create_home: true
     shell: /bin/bash
+    uid: 1400
     group: users
     groups: jailed
     password: '!'
@@ -16,9 +17,9 @@
     create: true
     insertafter: "EOF"
     line: "export Buchstabe=s"
-    path: /home/buchstabe/.bashrc
+    path: /home/plankton/.bashrc
     state: present
-    owner: buchstabe
+    owner: plankton
     group: users
     mode: '0644'
 

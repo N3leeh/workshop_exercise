@@ -1,7 +1,0 @@
-[Unit]
-Description=Service für Buchstabe
-
-[Service]
-Type=oneshot
-ExecStart=/bin/bash -c "echo d > /home/%i/buchstabe"
-User=%i

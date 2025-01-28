@@ -1,0 +1,12 @@
+[Unit]
+Description=Setze ENV-Var für plankton
+After=default.target
+
+[Service]
+ExecStart=/usr/bin/source /home/plankton/.bashrc
+Environment="Buchstabe=s"
+RemainAfterExit=yes
+Type=oneshot
+
+[Install]
+WantedBy=default.target
