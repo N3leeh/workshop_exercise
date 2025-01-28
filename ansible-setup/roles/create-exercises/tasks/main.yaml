@@ -35,7 +35,7 @@
 - name: lege das Skript ab für Aufgabe 5
   ansible.builtin.copy:
     src: quallenfischersong.sh
-    dest: /tmp/quallenfischersong.sh
+    dest: /etc/quallenfischersong.sh
     owner: root
     group: root
     mode: "0755"
