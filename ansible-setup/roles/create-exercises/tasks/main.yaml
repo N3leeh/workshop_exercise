@@ -39,7 +39,6 @@
     owner: root
     group: root
     mode: "0755"
-    state: present
 
 - name: Passe Berechtigungen für Aufgabe 6 an 
   ansible.builtin.file:
@@ -65,6 +64,14 @@
     owner: 500
     group: 500
   loop: "{{ ssh_jailed_users }}"
+
+- name: Erstelle Ordnerstruktur für SystemD-Service
+  ansible.builtin.file:
+    path: /home/plankton/.config/systemd/user
+    state: directory
+    owner: plankton
+    group: users
+    mode: 0755
 
 - name: Erstelle Env-Service für Aufgabe 9
   ansible.builtin.template:
