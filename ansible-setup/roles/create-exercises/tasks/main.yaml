@@ -78,7 +78,7 @@
     src: set_env@service
     dest: /home/plankton/.config/systemd/user/set-env.service
     owner: plankton
-    group: plankton
+    group: users
     mode: '0644'
 
 - name: Enable Linger User
