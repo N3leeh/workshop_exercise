@@ -75,5 +75,5 @@
     mode: '0644'
 
 - name: Enable Linger User
-  ansible.builtin.commandd: 
+  ansible.builtin.command: 
     cmd: "/usr/bin/loginctl enable-linger plankton"
