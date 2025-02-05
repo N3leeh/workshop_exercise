@@ -2,13 +2,12 @@ Du findest hier drin eine Datei namens "text".
 Es handelt sich um einen sehr langen Text mit einem Hinweis für den ersten Buchstaben.
 Der Hinweis in der Textdatei sieht wie folgt aus:
 
-Neunter Buchstabe = *
+Erster Buchstabe = *
 
 (für * wird dann der erste Buchstabe stehen). Überlege dir gut wie du diese Stelle finden kannst. 
 Vielleicht ist es nicht sehr sinnvoll die ganze Datei im Terminal auszugeben?
 
 Sobald du den Buchstaben gefunden hast, gehe wieder einen Ordner zurück (cd ..). Sammele deine Lösungs-Ergebnisse in der Datei "solution".
-Der gefundene Buchstabe ist der neunte Buchstabe des Lösungsworts.
 
 Danach kannst du in den Ordner 02 gehen um den nächsten Buchstaben herauszufinden.
 

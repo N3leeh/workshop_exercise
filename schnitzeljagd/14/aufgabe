@@ -1,3 +1,5 @@
-Heute ist Gegenteil-Tag!
-In diesem Ordner findest du eine Datei.
-Lasse diese erst mal zeilenweise rückswärts ausgeben und dann zeichenweise.
+Hier findest du eine Datei mit einem seeehr langen String. 
+Lasse dir den String so ausgeben, dass er keine Leerzeichen mehr enthält. 
+Der Lösungsbuchstabe befindet sich an Stelle ... in der Ausgabe.
+
+Nutze Pipes un die Ausgabe entsprechend anzupassen.
