@@ -1,15 +1,13 @@
-Wie du bereits aus der vorherigen Aufgabe weißt, kannst du die meisten Befehle mit bestimmten Buchstaben (Parametern) aufrufen.
+In diesem Ornder findest du einen weiteren Ornder mit dem Namen "unterordner".
 
-Der achte Buchstabe des Lösungswortes ist der Buchstabe (Parameter), welchen du verwenden musst, wenn du mit dem Befehl "rm" nicht nur eine Datei,
-sondern auch alle Unterordner und den Inhalt dieser löschen möchtest.
+Gehe mit cd in diesen Unterordner. Dort findest du viele verschiedene Dateien und Ordner.
+Mit dem Befehl "ls" kannst du dir eine Liste der Dateien und Ordner ausgeben lassen.
 
-Beispielsweise:
+Deine erste Aufgabe ist es, die Ausgabe von ls in eine Datei namens "text" zu schreiben.
+Danach sollst du die Datei "text" ausgeben, dabei sollen die Zeilennummern nummeriert sein.
 
-rm -? /home/test/
+Der vierte Buchstabe des 28. Eintrags ist der siebte Buchstabe des Lösungswortes.
 
-Dieser Befehl soll alles, auch die Unterordner entfernen. Statt dem Fragezeichen muss der gesuchte Buchstabe eingefügt werden.
+Schreibe diesen in die Lösungsdatei. Danach fahre fort mit dem Ordner 03.
 
-Falls du nicht weiterkommst, schau dir die Tipps an.
-
-Sobald du den Buchstaben rausgefunden hast, trage ihn wieder in die Datei "solution" ein.
-Dann fahre fort im Ordner 04
+Hilfe findest du hier wieder in den Dateien "tipp1" und "tipp2".

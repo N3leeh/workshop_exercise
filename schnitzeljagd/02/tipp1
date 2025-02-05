@@ -1,5 +1,2 @@
-Tipp 1:
-Um eine Ausgabe eines Befehls in eine andere Datei zu schreiben kannst du das Größer-Symbol > verwenden.
-Beispiel:	
-
-date > ~/heute
+Tipp 1: 
+Der Fachbegriff um alles, auch Unterordner und enthaltene Dateien zu löschen heißt rekursives löschen.

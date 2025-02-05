@@ -1,3 +1,10 @@
-Tipp 2: 
-Jeder Befehl hat eine Anleitung (manpage). Hier wird beschrieben wie Befehle funktionieren und welche Paramater man ihnen mitgeben kann.
-Um die manpage zu öffnen kannst du den Befehl "man" verwenden. 
+Tipp 2:
+Um eine Datei mit nummerierten Zeilen auszugeben, kannst du cat verwenden. Du musst nur dem cat-Befehl mit dem entsprechenden Parameter aufrufen.
+
+Wenn du nicht genau weißt, wie du einen Befehl anwendest, oder wie der entsprechender Parameter heißt, kannst du dir die Manpage oder die Hilfe
+für den Befehl ausgeben lassen:
+
+man cat
+cat --help
+
+Oder einfach mal im Netz suchen:     linux man cat
