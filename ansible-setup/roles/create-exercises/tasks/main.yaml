@@ -96,8 +96,8 @@
 
 - name: Erstelle Datei für Lösung für Aufgabe 8
   tags: ['teil1', 'never']
-  ansible.builtin.file:
-    src: "/home/{{ item }}/08/unterordner/bestellung_5"
+  ansible.builtin.copy:
+    src: "{{ src_dir }}/08/unterordner/bestellung_5"
     dest: "/home/{{ item }}/schnitzeljagd/08/unterordner/bestellung_04"
     owner: "{{ item }}"
     group: users
