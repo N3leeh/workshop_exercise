@@ -1,3 +1,5 @@
-Heute ist Gegenteil-Tag!
-In diesem Ordner findest du eine Datei.
-Lasse diese erst mal zeilenweise rückswärts ausgeben und dann zeichenweise.
+Hier findest du eine Datei mit einem seeehr langen String. 
+Tausche bei dem String alle Kommas durch Newlines. Anschließend sortiere die Ausgabe und zähle wie oft welches Wort in der Ausgabe vorkommt.
+Der letzte Buchstabe des Wortes, das nur einmal vorkommt, ist der Lösungsbuchstabe.
+
+Nutze Pipes un die Ausgabe entsprechend anzupassen.

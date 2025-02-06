@@ -1,0 +1,5 @@
+Tipp 2:
+Um die Datei "buchstabe" zu finden kannst du den Befehl find verwenden.
+In der Ausgabe des Befehls wird der Dateipfad der Suchergebnisse ausgegeben.
+
+WICHTIG: Linux ist casesensitiv! Das heißt: Groß- und Kleinschreibung ist zu beachten!

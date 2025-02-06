@@ -1,6 +1,5 @@
 Tipp 2:
-Mit "sudo" kannst du Befehle mit den Rechten des Users "root" auszuführen.
+Du kannst in den Manpages auch suchen. 
+man -k stichwort 
 
-Bsp:
-
-sudo ls
+Der Befehl hat auch eine Usage-Message.

@@ -1,5 +1,6 @@
 Tipp 2:
-Um die Datei "buchstabe" zu finden kannst du den Befehl find verwenden.
-In der Ausgabe des Befehls wird der Dateipfad der Suchergebnisse ausgegeben.
+Mit "sudo" kannst du Befehle mit den Rechten des Users "root" auszuführen.
 
-WICHTIG: Linux ist casesensitiv! Das heißt: Groß- und Kleinschreibung ist zu beachten!
+Bsp:
+
+sudo ls
