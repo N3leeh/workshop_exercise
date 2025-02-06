@@ -1,3 +1,7 @@
 Heute ist Gegenteil-Tag!
 In diesem Ordner findest du eine Datei.
 Lasse diese erst mal zeilenweise rückswärts ausgeben und dann zeichenweise.
+Der erste Buchstabe des letzten Wortes ist der Lösungsbuchstabe.
+
+Zur Übersichtlichkeit kannst du die Ausgabe auch wieder sortieren und nur einzigartige Zeilen ausgeben lassen.
+Er steht an der neunten Stelle des Lösungswortes.

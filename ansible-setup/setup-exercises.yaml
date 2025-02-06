@@ -15,3 +15,13 @@
   roles:
     - create-user
     - create-exercises
+
+# Aufruf mit Tags; teil1 legt Aufgaben für Tag 1 an, teil2 für Tag 2
+#
+# ansible-playbook setup-exercises.yaml --tags=teil1
+
+### Lösung der Übungsaufgaben geben von folgenden Ergebnissen aus
+#
+# Kernel-Major-Version 6
+# Debian-Major-Version 12
+# 11 Workshop-Teilnehmer

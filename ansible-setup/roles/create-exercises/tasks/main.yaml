@@ -19,8 +19,11 @@
 # 12. Nicht lesbarer Ordner
 # 13. Zählen wie oft ein Wort in einer Datei enthalten ist
 # 14. Eine Datei finden die keinem User und keiner Gruppe gehört
-# 
-
+# 16. Gegenteiltag (Text rückwärts ausgeben lassen)
+# 17. Mit Wildcards arbeiten
+# 18. Verwendete Kernel-Version herausfinden
+# 19. User-Wechsel und Env-Var
+#
 
 - name: Erstelle Schnitzeljagd-Ordner
   ansible.builtin.file: 
