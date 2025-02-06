@@ -84,7 +84,7 @@
 - name: Erstelle Hardlinks
   tags: ['teil1', 'never']
   ansible.builtin.file:
-    src: "/home/{{ item[1] }}/schnitzeljagd/08/unterordner/bestellung_5"
+    remote_src: "/home/{{ item[1] }}/schnitzeljagd/08/unterordner/bestellung_5"
     dest: "/home/{{ item[1] }}/schnitzeljagd/08/unterordner/bestellung_{{ item[0] }}"
     state: hard
     owner: "{{ item[1] }}"
