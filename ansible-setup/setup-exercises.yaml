@@ -6,7 +6,7 @@
 
   vars:
     src_dir: ~/workshop_exercise/schnitzeljagd
-    teil1: ['01', '02', '03', '04', '05', '06', '07', '08', ' 09']
+    teil1: ['01', '02', '03', '04', '05', '06', '07', '08', '09']
     teil2: ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19'] 
     etc_files: ['Readme.md', 'solution', 'tipps']
 
