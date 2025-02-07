@@ -26,6 +26,7 @@
 #
 
 - name: Erstelle Schnitzeljagd-Ordner
+  tags: ['teil1', 'teil2']
   ansible.builtin.file: 
     path: "/home/{{ item }}/schnitzeljagd"
     mode: '0750'
@@ -35,11 +36,12 @@
   loop: "{{ ssh_jailed_users }}"
 
 - name: Erstelle Readme.md, tipps und solution
+  tags: ['teil1', 'teil2']
   ansible.builtin.copy:
     src: "{{ src_dir }}/{{ item[0] }}"
     owner: "{{ item[1] }}"
     group: users
-    dest: "/home/{{ item[1] }}/schnitzeljagd/"
+    dest: "/home/{{ item[1] }}/schnitzeljagd/{{ item[0] }}"
   with_nested:
     - "{{ etc_files }}"
     - "{{ ssh_jailed_users }}"

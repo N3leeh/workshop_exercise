@@ -1,5 +1,6 @@
 ---
 - name: Erstelle User plankton
+  tags: ['teil2']
   ansible.builtin.user:
     name: plankton
     comment: "Wo ist die Geheimformel?"
@@ -13,6 +14,7 @@
     state: present
 
 - name: Erstelle User Variable
+  tags: ['teil2']
   ansible.builtin.lineinfile:
     create: true
     insertafter: "EOF"
