@@ -39,7 +39,7 @@
     src: "{{ src_dir }}/{{ item[0] }}"
     owner: "{{ item[1] }}"
     group: users
-    dest: "/home/{{ item[1] }}/schnitzeljagd/{{ item[0] }}"
+    dest: "/home/{{ item[1] }}/schnitzeljagd/"
   with_nested:
     - "{{ etc_files }}"
     - "{{ ssh_jailed_users }}"
