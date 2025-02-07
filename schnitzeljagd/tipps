@@ -1,7 +1,15 @@
 1. Findet Hilfe!
 - lest die Manpage
 - schaut euch die "Usage-Message" an (--help)
+- google oder eine Suchemaschine eurer Wahl
+- Suchen in den Manpages:
+    man -k stichwort
+    apropos stichwort
 
 2. Lest euch die Tipps durch
 
 3. Schaut auf euer Handout!
+
+4. Denkt daran, dass in Linux grundsätzlich alles casesensitiv ist
+
+5. Fragt gerne auch mal euren Nachbarn oder uns :)
