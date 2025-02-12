@@ -26,7 +26,7 @@
 #
 
 - name: Erstelle Schnitzeljagd-Ordner
-  tags: ['teil1', 'teil2']
+  tags: ['teil1', 'never']
   ansible.builtin.file: 
     path: "/home/{{ item }}/schnitzeljagd"
     mode: '0750'
@@ -78,7 +78,7 @@
   tags: ['teil1', 'never']
   ansible.builtin.copy:
     src: quallenfischersong.sh
-    dest: /etc/quallenfischersong.sh
+    dest: /etc/
     owner: root
     group: root
     mode: "0755"

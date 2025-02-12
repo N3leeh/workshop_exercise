@@ -1,0 +1,51 @@
+##### Generelle Tipps #####
+
+### Generell ####
+1. Lest die Tipps in den einzelnen Ordnern
+2. Schreibt euch eure einzelnen Ergebnisse gerne in eine gesonderte Datei
+3. Denkt dran das in Linux grundsätzlich alles casesensitiv ist
+4. Nutzt gerne euer Handout (ihr findet dort aber vielleicht nicht alle notwendigen Befehle!)
+
+### Findet Hilfe! ###
+1. Lest die Manpage ("man befehl")
+2. Man kann nach Manpages suchen ("man -k stichwort" oder "apropos stichwort")
+3. Schaut euch die "Usage-Message" an ("befehl --help")
+4. Nutzt gerne die Suchmaschine eurer Wahl
+5. Alle Manpages findet ihr ebenfalls im Internet
+6. Unterstützt euch gerne gegenseitig!
+
+### Und noch ein paar allgemeine Linux-Tipps ###
+
+## Redirection ##
+Es gibt drei verschiedene File-Descriptoren ("Kanaäle"):
+0. StdIn (Standardeingabe) -> in der Regel deine Tastatur
+1. StdOut (Standardausgabe) -> in der Regel deine Shell
+2. StdErr (Fehlerausgabe) -> in der Regel ebenfalls deine Shell
+
+Du kannst diese Kanäle mit ">" und "<" umlenken.
+Teste das gerne mit Hilfe des Befehls "echo" oder "cat"
+
+## Wildcards ##
+Die Bash-Shell kennt drei Wildcards ("Jokerzeichen"): "*", "?", "[a-z]"
+*       = beliebige Zeichen (sowohl qualitativ und quantitativ)
+?       = ein beliebiges Zeichen
+[a-z]   = ein Zeichen aus der Menge
+
+
+## Kommandos mit einander verbinden ##
+
+# Pipelines
+Pipelines erlauben dir die Ausgabe eines Kommandos an ein weiteres Kommando weiterzugeben
+
+Nutzung:
+befehl1 | befehl2
+
+# UND-Verknüpfung
+Befehl2 wird nur ausgeführt, wenn Befehl1 erfolgreich war
+
+befehl1 && befehl2
+
+# OR-Verknüpfung
+Befehl2 wird nur ausgeführt, wenn Befehl1 NICHT erfolgreich war
+
+befehl 1 || befehl2
