@@ -2,13 +2,14 @@
 
 ### Generell ####
 1. Lest die Tipps in den einzelnen Ordnern
-2. Schreibt euch eure einzelnen Ergebnisse gerne in eine gesonderte Datei
+2. Schreibt euch eure einzelnen Zwischen-Ergebnisse gerne in eine gesonderte Datei
 3. Denkt dran das in Linux grundsätzlich alles casesensitiv ist
 4. Nutzt gerne euer Handout (ihr findet dort aber vielleicht nicht alle notwendigen Befehle!)
 
 ### Findet Hilfe! ###
 1. Lest die Manpage ("man befehl")
-2. Man kann nach Manpages suchen ("man -k stichwort" oder "apropos stichwort")
+2. Man kann nach Manpages suchen ("man -k stichwort" oder "apropos stichwort"). 
+   Die Manpages sind alle in englischer Sprache, dein Stichwort sollte das auch sein
 3. Schaut euch die "Usage-Message" an ("befehl --help")
 4. Nutzt gerne die Suchmaschine eurer Wahl
 5. Alle Manpages findet ihr ebenfalls im Internet
@@ -48,4 +49,4 @@ befehl1 && befehl2
 # OR-Verknüpfung
 Befehl2 wird nur ausgeführt, wenn Befehl1 NICHT erfolgreich war
 
-befehl 1 || befehl2
+befehl1 || befehl2
