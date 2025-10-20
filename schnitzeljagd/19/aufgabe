@@ -1,4 +1,6 @@
-Um den letzten Buchstabe herauszufinden, musst du dich mit dem Nutzer "plankton" anmelden.
-Der Nutzer plankton hat eine Variable namens Buchstabe. Gib diese aus, um den elften Buchstaben im Lösungswort zu finden.
+Heute ist Gegenteil-Tag!
+In diesem Ordner findest du eine Datei.
+Lasse diese erst mal zeilenweise rückswärts ausgeben und dann zeichenweise.
+Zur Übersichtlichkeit sortiere die Ausgabe wieder und lasse dir nur einzigartige Zeilen ausgeben.
 
-Hast du die Lösung?
+Der letzte Buchstabe des letzten Wortes in der ersten Zeile ist der Lösungsbuchstabe. Er gehört an die neunte Stelle in der Lösung.

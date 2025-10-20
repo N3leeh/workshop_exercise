@@ -1,2 +1,4 @@
-Finde heraus, welche Kernel-Version auf dem System eingesetzt wird.
-Die eingesetzte Major-Version (das heißt die erste Zahl) entspricht der Stelle im Lösungswort für das Ergebnis aus Aufgabe 14
+Hier findest du eine Datei mit einem seeehr langen String. 
+Tausche bei dem String alle Kommas durch Newlines. Anschließend sortiere die Ausgabe und zähle wie oft welches Wort in der Ausgabe vorkommt.
+Der letzte Buchstabe des Wortes, das nur einmal vorkommt, ist der Lösungsbuchstabe. Er steht an der zwölften Stelle.
+Nutze Pipes un die Ausgabe entsprechend anzupassen.

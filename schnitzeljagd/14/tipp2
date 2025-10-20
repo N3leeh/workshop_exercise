@@ -1,4 +1,6 @@
 Tipp 2:
-Lies die Manpage von find!
+Mit "sudo" kannst du Befehle mit den Rechten des Users "root" auszuführen.
 
-Mit / kannst du in der Manpage suchen.
+Bsp:
+
+sudo ls

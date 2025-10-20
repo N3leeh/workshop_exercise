@@ -1,3 +1,3 @@
 Tipp 1:
-Du brauchst mehrere Befehle.
-Vergiss nicht: Du kannst in der manpage suchen.
+Um dich als Besitzer der Ordner zu machen verwende den Befehl chown rekursiv:
+Beispiel: sudo chown -R deinNutzername:deinNutzername unterordner

@@ -1,0 +1,6 @@
+Tipp 1:
+Um auf einen anderen User zu wechseln gibt es zwei Möglichkeiten.
+Du kannst den Befehl su verwenden (Beispiel: su - username), hier musst du allerdings
+das Passwort des Zielusers kennen.
+Du kannst aber auch mit dem Befehl sudo zu einem anderen User wechseln (sudo -i -u username)
+Um dich wieder abzumelden und zurück zu kommen kannst du einfach exit eingeben
