@@ -71,12 +71,11 @@ Ansible-Playbook + Rolle zum erstellen der Dateien + Verzeichnisse für die Teil
 20. Kernel-Version
 21. Wechsel zum User Plankton
 
-Weitere Ideen:
+## Sidequests
 - Lass die Kuh die Zukunft voraussagen!
+- Ideen für weitere Übungsaufgaben
 
-
-Zusatzaufgaben für Profis
-
+## Zusatzaufgaben, für Leute die noch Zeit haben
 1. Besondere Rechte einer Datei
 2. Name der besonderen Dateirechte
 3. Welchen Exitcode hat ein Befehl?
