@@ -1,15 +1,2 @@
-Wie du bereits aus der vorherigen Aufgabe weißt, kannst du die meisten Befehle mit bestimmten Buchstaben (Parametern) aufrufen.
-
-Der zehnte Buchstabe des Lösungswortes ist der Buchstabe (Parameter), welchen du verwenden musst, wenn du mit dem Befehl "rm" nicht nur eine Datei,
-sondern auch alle Unterordner und den Inhalt dieser löschen möchtest.
-
-Beispielsweise:
-
-rm -? /home/test/
-
-Dieser Befehl soll alles, auch die Unterordner entfernen. Statt dem Fragezeichen muss der gesuchte Buchstabe eingefügt werden.
-
-Falls du nicht weiterkommst, schau dir die Tipps an.
-
-Sobald du den Buchstaben rausgefunden hast, trage ihn wieder in die Datei "solution" ein.
-Dann fahre fort im Ordner 03
+Spongebob hat einen Krabbenburger. Wie kommt der Krabbenburger von Spongebob zu Patrick?
+Der Anfangsbuchstabe des Befehls steht an der zehnten Stelle der Lösung.
