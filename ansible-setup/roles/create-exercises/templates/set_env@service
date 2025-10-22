@@ -4,7 +4,7 @@ After=default.target
 
 [Service]
 ExecStart=/usr/bin/source /home/plankton/.bashrc
-Environment="Buchstabe=y"
+Environment="KAREN=p"
 RemainAfterExit=yes
 Type=oneshot
 

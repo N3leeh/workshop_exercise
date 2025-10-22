@@ -2,28 +2,7 @@
 # Aufgaben 
 ###########
 #
-### Part 1
-# 1. String in langen Textfile suchen
-# 2. Parameter für bestimmten Befehl suchen
-# 3. Ausgabe mit ls und Redirection erzeugen
-# 4. Versteckte Datei finden
-# 5. Alias ausführen
-# 6. Abschnitt in der Manpage für Admin-Befehle
-# 7. Installiere Linux-Distro und Major-Version herausfinden
-# 8. Dateien vergleichen (Hardlinks)
-# 9. Datei mit merkwürdigen Inhalt ausgeben
-#
-### Part 2
-# 10. Wieviele Mitglieder hat die Gruppe jailed
-# 11. Nicht lesbare Datei lesbar machen
-# 12. Nicht lesbarer Ordner
-# 13. Zählen wie oft ein Wort in einer Datei enthalten ist
-# 14. Eine Datei finden die keinem User und keiner Gruppe gehört
-# 16. Gegenteiltag (Text rückwärts ausgeben lassen)
-# 17. Mit Wildcards arbeiten
-# 18. Verwendete Kernel-Version herausfinden
-# 19. User-Wechsel und Env-Var
-#
+# Eine Liste aller Aufgaben findet sich in der README.md
 
 - name: Erstelle Schnitzeljagd-Ordner
   tags: ['teil1', 'never']
@@ -46,7 +25,7 @@
     - "{{ etc_files }}"
     - "{{ ssh_jailed_users }}"
 
-# Erstelle Tage 1
+# Erstelle Teil 1
 - name: Erstelle Schnitzeljagd
   tags: ['teil1', 'never']
   ansible.builtin.copy:
@@ -60,8 +39,8 @@
   - "{{ teil1 }}"
   - "{{ ssh_jailed_users }}"
 
-# Aufgabe 5; finde und führe Alias aus
-- name: Erstelle Alias für Aufgabe 5
+# Aufgabe 8; finde und führe Alias aus
+- name: Erstelle Alias für Aufgabe 8
   tags: ['teil1', 'never']
   ansible.builtin.lineinfile:
     path: "/home/{{ item }}/.bashrc"
@@ -74,7 +53,7 @@
     mode: '0644'
   loop: "{{ ssh_jailed_users }}"
 
-- name: Lege das Skript ab für Aufgabe 5
+- name: Lege das Skript ab für Aufgabe 8
   tags: ['teil1', 'never']
   ansible.builtin.copy:
     src: quallenfischersong.sh
@@ -83,29 +62,7 @@
     group: root
     mode: "0755"
 
-# Aufgabe 8; Dateien vergleichen (Hardlinks)
-- name: Erstelle Hardlinks
-  tags: ['teil1', 'never']
-  ansible.builtin.file:
-    src: "/home/{{ item[1] }}/schnitzeljagd/08/unterordner/bestellung_5"
-    dest: "/home/{{ item[1] }}/schnitzeljagd/08/unterordner/bestellung_{{ item[0] }}"
-    state: hard
-    owner: "{{ item[1] }}"
-    group: users
-  with_nested:
-   - "{{ ['1', '2', '3', '6', '7', '8', '9'] }}" # Datei-Namen der Hardlinks
-   - "{{ ssh_jailed_users }}"
-
-- name: Erstelle Datei für Lösung für Aufgabe 8
-  tags: ['teil1', 'never']
-  ansible.builtin.copy:
-    src: "{{ src_dir }}/08/unterordner/bestellung_5"
-    dest: "/home/{{ item }}/schnitzeljagd/08/unterordner/bestellung_04"
-    owner: "{{ item }}"
-    group: users
-  loop: "{{ ssh_jailed_users }}"
-
-# Erstelle Aufgaben für Tag 2
+# Erstelle Aufgaben für Teil2
 - name: Erstelle Aufgaben für Tag 2 / Teil 2
   tags: ['teil2', 'never']
   ansible.builtin.copy:
@@ -117,21 +74,44 @@
   - "{{ teil2 }}"
   - "{{ ssh_jailed_users }}"
 
-# Aufgabe 11; nicht lesbare Datei lesbar machen
-- name: Passe Berechtigungen für Aufgabe 11 an
+# Aufgabe 12; Dateien vergleichen (Hardlinks); alle Fake
+- name: Erstelle Hardlinks
+  tags: ['teil2', 'never']
+  ansible.builtin.file:
+    src: "/home/{{ item[1] }}/schnitzeljagd/12/unterordner/bestellung"
+    dest: "/home/{{ item[1] }}/schnitzeljagd/12/unterordner/bestellung_{{ item[0] }}"
+    state: hard
+    owner: "{{ item[1] }}"
+    group: users
+  with_nested:
+   - "{{ ['1', '2', '3', '4', '5', '6', '8', '9'] }}" # Datei-Namen der Hardlinks
+   - "{{ ssh_jailed_users }}"
+
+# Richtige Lösung ist der Softlink!
+- name: Erstelle Datei für Lösung für Aufgabe 12
+  tags: ['teil2', 'never']
+  ansible.builtin.copy:
+    src: "{{ src_dir }}/12/unterordner/bestellung"
+    dest: "/home/{{ item }}/schnitzeljagd/12/unterordner/bestellung_7"
+    owner: "{{ item }}"
+    group: users
+  loop: "{{ ssh_jailed_users }}"
+
+# Aufgabe 14; nicht lesbare Datei lesbar machen
+- name: Passe Berechtigungen für Aufgabe 14 an
   tags: ['teil2', 'never'] 
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/11/text"
+    path: "/home/{{ item }}/schnitzeljagd/14/text"
     owner: root
     group: root
     mode: '0700'
   loop: "{{ ssh_jailed_users }}"
 
-# Aufgabe 12; nicht lesbaren Ordner lesbar machen
-- name: Passe Berechtigungen für Aufgabe 12 an
+# Aufgabe 15; nicht lesbaren Ordner lesbar machen
+- name: Passe Berechtigungen für Aufgabe 15 an
   tags: ['teil2', 'never']
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/12/unterordner"
+    path: "/home/{{ item }}/schnitzeljagd/15/unterordner"
     state: directory
     recurse: true
     owner: root
@@ -139,16 +119,16 @@
     mode: '0000'
   loop: "{{ ssh_jailed_users }}"
 
-# Aufgabe 14; Datei die keinem User und keiner Gruppe gehört
-- name: Passe Datei an für Aufgabe 14
+# Aufgabe 17; Datei die keinem User und keiner Gruppe gehört
+- name: Passe Datei an für Aufgabe 17
   tags: ['teil2', 'never']
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/14/unterordner/Lorem/4/9/10/sometest"
+    path: "/home/{{ item }}/schnitzeljagd/17/unterordner/Lorem/4/9/10/sometest"
     owner: 500
     group: 500
   loop: "{{ ssh_jailed_users }}"
 
-# Aufgabe 19; env-Variable für Plankton; Test mit User-Service und linger-User
+# Aufgabe 21; env-Variable für Plankton; Test mit User-Service und linger-User
 - name: Erstelle Ordnerstruktur für SystemD-Service
   tags: ['teil2', 'never']
   ansible.builtin.file:
@@ -158,7 +138,7 @@
     group: users
     mode: 0755
 
-- name: Erstelle Env-Service für Aufgabe 19
+- name: Erstelle Env-Service für Aufgabe 21
   tags: ['teil2', 'never']
   ansible.builtin.template:
     src: set_env@service
@@ -170,3 +150,12 @@
 - name: Enable Linger User
   ansible.builtin.command: 
     cmd: "/usr/bin/loginctl enable-linger plankton"
+
+- name: Starte ENV-Service
+  ansible.builtin.systemd_service:
+    name: set-env.service
+    scope: user
+    state: started
+    enabled: true
+    daemon_reload: true
+  become_user: "plankton"
