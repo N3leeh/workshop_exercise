@@ -1,6 +1,5 @@
 Heute ist Gegenteil-Tag!
 In diesem Ordner findest du eine Datei.
-Lasse diese erst mal zeilenweise rückswärts ausgeben und dann zeichenweise.
-Zur Übersichtlichkeit sortiere die Ausgabe wieder und lasse dir nur einzigartige Zeilen ausgeben.
+Lasse diese erst mal zeilenweise rückswärts ausgeben und dann zeichenweise; anschließend begrenze die Ausgabe auf die letzte Zeile.
 
-Der letzte Buchstabe des letzten Wortes in der ersten Zeile ist der Lösungsbuchstabe. Er gehört an die neunte Stelle in der Lösung.
+Der letzte Buchstabe des letzten Wortes ist der Lösungsbuchstabe. Er gehört an die neunte Stelle in der Lösung

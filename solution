@@ -1,11 +1,12 @@
-Lösung 2024
+# Lösung 2024
 Codename für Linux Kernel 5.10
 A giant angry duck
 
-Lösung 2025
+# Lösung 2025
 Codename für Linux Kernel 2.6.21
 Nocturnal Monster Puppy
 
+# Tabelle
 | Zahl | Lösung | Aufgabe | Gescheckt?  |
 |------|--------|---------|-------------|
 | 1    | N      | 10      |
@@ -29,3 +30,28 @@ Nocturnal Monster Puppy
 | 19   | P      | 1       |
 | 20   | P      | 14      |
 | 21   | Y      | 6       |
+
+
+# Lösung der einzelnen Aufgaben 
+(verschiedene Lösungswege möglich)
+1. grep -i "buchstabe" text
+2. mv spongebog/krabbenburger patrick/
+3. man rm
+4. ls unterordner | cat -n
+5. id 0
+6. ls -al; cat .krabbenburgergeheimrezept
+7. man man
+8. alias
+9. cat /etc/os-release
+10. ls -al /usr/bin/[!a-zA-Z0-9]
+11. cat willk0mmen\ \$i\?\\abfalleimer
+12. ls -li
+13. getent group
+14. sudo cat krabbenburgergeheimrezept
+15. chown -R username:gruppe unterordner; find . -name "buchstabe" -type f
+16. grep -c Wahnsinn text
+17. find . -nouser -nogroup
+18. cat text | tr ',' '\n' | sort | uniq -c | sort
+19. rev text | tac | tail -n 1
+20. uname -r 
+21. sudo -i -u plankton "echo $KAREN"
