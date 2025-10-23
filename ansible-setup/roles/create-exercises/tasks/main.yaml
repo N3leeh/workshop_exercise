@@ -57,7 +57,7 @@
   tags: ['teil1', 'never']
   ansible.builtin.copy:
     src: quallenfischersong.sh
-    dest: /etc/
+    dest: /etc/quallenfischersong.sh
     owner: root
     group: root
     mode: "0755"
