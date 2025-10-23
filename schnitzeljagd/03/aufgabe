@@ -1,6 +1,6 @@
 Wie du bereits aus den vorherigen Aufgabe weißt, kannst du die meisten Befehle mit bestimmten Buchstaben (Parametern) aufrufen.
 
-Der zehnte Buchstabe des Lösungswortes ist der Buchstabe (Parameter), welchen du verwenden musst, wenn du mit dem Befehl "rm" nicht nur eine Datei,
+Der 16. Buchstabe des Lösungswortes ist der Buchstabe (Parameter), welchen du verwenden musst, wenn du mit dem Befehl "rm" nicht nur eine Datei,
 sondern auch alle Unterordner und den Inhalt dieser löschen möchtest.
 
 Beispielsweise:
@@ -12,4 +12,4 @@ Dieser Befehl soll alles, auch die Unterordner entfernen. Statt dem Fragezeichen
 Falls du nicht weiterkommst, schau dir die Tipps an.
 
 Sobald du den Buchstaben rausgefunden hast, trage ihn wieder in die Datei "solution" ein.
-Dann fahre fort im Ordner 03
+Dann fahre fort im Ordner 04

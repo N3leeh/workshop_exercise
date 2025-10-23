@@ -15,7 +15,7 @@
   loop: "{{ ssh_jailed_users }}"
 
 - name: Erstelle Readme.md, tipps und solution
-  tags: ['teil1', 'teil2']
+  tags: ['teil1']
   ansible.builtin.copy:
     src: "{{ src_dir }}/{{ item[0] }}"
     owner: "{{ item[1] }}"
@@ -101,10 +101,10 @@
 - name: Passe Berechtigungen für Aufgabe 14 an
   tags: ['teil2', 'never'] 
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/14/text"
+    path: "/home/{{ item }}/schnitzeljagd/14/krabbenburgergeheimrezept"
     owner: root
     group: root
-    mode: '0700'
+    mode: '0400'
   loop: "{{ ssh_jailed_users }}"
 
 # Aufgabe 15; nicht lesbaren Ordner lesbar machen
@@ -116,7 +116,7 @@
     recurse: true
     owner: root
     group: root
-    mode: '0000'
+    mode: '0700'
   loop: "{{ ssh_jailed_users }}"
 
 # Aufgabe 17; Datei die keinem User und keiner Gruppe gehört
