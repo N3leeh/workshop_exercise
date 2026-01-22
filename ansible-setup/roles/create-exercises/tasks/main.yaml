@@ -46,7 +46,7 @@
     path: "/home/{{ item }}/.bashrc"
     create: true
     insertafter: "EOF"
-    line: "alias quallenfischersong=/etc/quallenfischen/uallenfischersong.sh"
+    line: "alias quallenfischersong=/etc/quallenfischen/quallenfischersong.sh"
     state: present
     owner: "{{ item }}"
     group: users
