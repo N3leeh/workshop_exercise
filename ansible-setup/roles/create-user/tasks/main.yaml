@@ -18,7 +18,7 @@
   ansible.builtin.lineinfile:
     create: true
     insertafter: "EOF"
-    line: "export KAREN=p"
+    line: "export KAREN=g"
     path: /home/plankton/.bashrc
     state: present
     owner: plankton
