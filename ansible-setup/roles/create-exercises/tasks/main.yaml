@@ -46,18 +46,25 @@
     path: "/home/{{ item }}/.bashrc"
     create: true
     insertafter: "EOF"
-    line: "alias quallenfischersong=/etc/quallenfischersong.sh"
+    line: "alias quallenfischersong=/etc/quallenfischen/uallenfischersong.sh"
     state: present
     owner: "{{ item }}"
     group: users
     mode: '0644'
   loop: "{{ ssh_jailed_users }}"
 
+- name: Erstelle Ordner für das Skript für Aufgabe 8
+  tags: ['teil1', 'never']
+  ansible.builtin.file:
+    path: /etc/quallenfischen
+    state: directory
+    mode: '0755'
+
 - name: Lege das Skript ab für Aufgabe 8
   tags: ['teil1', 'never']
   ansible.builtin.copy:
     src: quallenfischersong.sh
-    dest: /etc/quallenfischersong.sh
+    dest: /etc/quallenfischen/quallenfischersong.sh
     owner: root
     group: root
     mode: "0755"
