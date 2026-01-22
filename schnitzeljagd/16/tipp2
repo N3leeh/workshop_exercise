@@ -1,1 +1,4 @@
-Hilfe zu einem Befehl findest du in der Manpage oder wenn du zu dem Befehl --help eingibst.
+Tipp 2:
+
+Du musst natürlich die Ergebnisse nicht selbst zählen. Du kannst dafür eine Option verwenden.
+wenn du nicht weißt, welche Option du benötigst, schaue in die Manpage oder nutze "--help".

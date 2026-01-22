@@ -1,3 +1,13 @@
 Tipp 3:
-Wenn du den Befehl nicht weißt, kannst du die Manpage nach Stichwörtern durchsuchen.
-Denke dran, das die meisten Befehle einen englischen Namen haben.
+
+Du kannst Befehle auf verschiedene Arten mit einander kombinieren. 
+
+1. Redirection
+Du kannst die Ausgabe eines Befehls in eine Datei schreiben mit ">"
+
+Beispiel: ls ~ > datei
+
+2. Pipes
+Du kannst die Ausgabe eines Befehls direkt einem anderen Befehl übergeben mit "|"
+
+Beispiel: cat meintext | grep "suchstring"

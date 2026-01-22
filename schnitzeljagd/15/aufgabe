@@ -3,8 +3,7 @@ In einem der Unterordnern ist eine Datei "buchstabe" abgelegt. Allerdings weißt
 
 Außerdem hast du keinen Zugriff auf die Ordner.
 
-Dieses mal möchtest du aber Besitzer werden von diesem Ordner und allen Unterordnern.
-
+Dieses Mal möchtest du aber Besitzer werden von diesem Ordner und allen Unterordnern.
 Als erstes sollst du dich als Besitzer der Ordner und Unterordner eintragen.
 
 Danach kannst du die Datei buchstabe suchen. Verwende dafür einen Befehl, damit du nicht selbst alles durchsuchen musst.

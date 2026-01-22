@@ -1,2 +1,4 @@
 Tipp 2:
+
 Dateien mit Informationen und Konfigurationen findest du in der Regel unter /etc
+Lasse dir alle Dateien unter /etc ausgeben; die Datei die du suchst, hat einen sehr eindeutigen Namen.

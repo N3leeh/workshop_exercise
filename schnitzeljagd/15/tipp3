@@ -1,0 +1,8 @@
+Tipp 3:
+
+Wenn du dir nicht sicher bist, wie du find verwenden musst, schaue in die Manpage von find.
+Oder nutze find mit --help.
+In den manpages findest du meistens ganz unten auch viele Anwendungsbeispiele.
+
+Mit "shift + g" kannst du an das Ende der Manpage springen.
+Mit "/" kannst du in der Manpage nach einem bestimmten Begriff suchen.

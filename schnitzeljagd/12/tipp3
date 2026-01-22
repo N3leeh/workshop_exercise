@@ -1,2 +1,4 @@
 Tipp 3: 
-Jede Datei bekommt normalerweise eine einzigartige Nummer im Filesystem zugewiesen.
+
+Jede Datei bekommt normalerweise eine einzigartige Nummer, eine sogenannte Inode, im Filesystem zugewiesen.
+Wie kannst du dir diese Nummer ausgeben lassen?

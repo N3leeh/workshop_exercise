@@ -1,1 +1,17 @@
-Du kannst auch Suchmuster negieren, z.B. kein Zeichen aus der Menge 0-9 [!0-9]
+Tipp 2:
+
+Es gibt drei wichtige Wildcards:
+
+1. Das Fragezeichen
+Das "?" steht für genau ein Zeichen, das kann aber ein beliebiges Zeichen sein.
+
+2. Das Sternchen
+Das "*" steht für beliebig viele Zeichen, sowohl qualitativ als auch quantitativ.
+
+3. Eckige Klammern
+Mit diesen kannst du eine bestimmte Zeichenmenge bestimmen; die Klammern erlauben dann ein Zeichen
+aus dieser Menge.
+
+Beispiel: [a-z]
+
+Diese Wildcard erlaubt genau ein Zeichen aus der Zeichenmenge a-z (also alle Kleinbuchstaben).
