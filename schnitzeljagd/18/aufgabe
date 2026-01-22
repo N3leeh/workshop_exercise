@@ -1,4 +1,4 @@
 Hier findest du eine Datei mit einem seeehr langen String. 
 Tausche bei dem String alle Kommas durch Newlines. Anschließend sortiere die Ausgabe und zähle wie oft welches Wort in der Ausgabe vorkommt.
-Der letzte Buchstabe des Wortes, das nur einmal vorkommt, ist der Lösungsbuchstabe. Er steht an der siebten Stelle.
+Der letzte Buchstabe des Wortes, das nur einmal vorkommt, ist der Lösungsbuchstabe. Er steht an der 22. Stelle.
 Nutze Pipes un die Ausgabe entsprechend anzupassen.
