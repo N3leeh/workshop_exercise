@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "Du hast die Qualle gefangen!"
-echo "Sie sagt: O"
+echo "Sie sagt: E"
 
 exit 0

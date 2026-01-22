@@ -1,7 +1,7 @@
 Wie du bereits aus den vorherigen Aufgabe weißt, kannst du die meisten Befehle mit bestimmten Buchstaben (Parametern) aufrufen.
 
-Der 16. Buchstabe des Lösungswortes ist der Buchstabe (Parameter), welchen du verwenden musst, wenn du mit dem Befehl "rm" nicht nur eine Datei,
-sondern auch alle Unterordner und den Inhalt dieser löschen möchtest.
+Der 17. Buchstabe des Lösungswortes ist der Buchstabe (Parameter), welchen du verwenden musst, wenn du mit dem Befehl "rm" nicht nur eine Datei,
+sondern auch alle Unterordner und den Inhalt dieser löschen möchtest. Der gleiche Buchstabe steht auch an der 15. Stelle.
 
 Beispielsweise:
 
