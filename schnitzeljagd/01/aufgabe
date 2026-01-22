@@ -1,14 +1,16 @@
 Du findest hier drin eine Datei namens "text".
 Es handelt sich um einen sehr langen Text mit einem Hinweis für den 19. Lösungsbuchstaben.
-Der Hinweis in der Textdatei sieht wie folgt aus:
+Der -Hinweis- in der Textdatei sieht wie folgt aus:
 
 Erster Buchstabe = *
 
 (für * wird dann der erste Buchstabe stehen). Überlege dir gut wie du diese Stelle finden kannst. 
 Vielleicht ist es nicht sehr sinnvoll die ganze Datei im Terminal auszugeben?
 
-Sobald du den Buchstaben gefunden hast, gehe wieder einen Ordner zurück (cd ..). Sammele deine Lösungs-Ergebnisse in der Datei "solution".
+Sobald du den Buchstaben gefunden hast, gehe wieder einen Ordner zurück (cd ..). 
+Dort kannst du deine Lösungs-Ergebnisse in der Datei "solution" sammeln.
 
-Danach kannst du in den Ordner 02 gehen um den nächsten Buchstaben herauszufinden.
+Danach kannst du in den Ordner 02 gehen, um den nächsten Buchstaben herauszufinden.
 
-Falls du nicht weiter kommst, kannst du den tipp lesen.
+In jedem Aufgabenordner findest du außerdem ein oder mehrere Dateien mit tipps, die dir weiterhelfen,
+falls du mal nicht weiterkommst.

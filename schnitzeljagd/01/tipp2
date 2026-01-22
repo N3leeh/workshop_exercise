@@ -1,0 +1,6 @@
+Tipp 2:
+
+Mit dem Befehl "grep" kannst du filtern.
+
+Mit dem Befehl "grep" kannst du nach Inhalten in Dateien suchen.
+Wenn du nicht genau weißt wie, schaue dir die Manpage von "grep" an, oder versuche es mit "--help"

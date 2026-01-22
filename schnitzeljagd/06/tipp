@@ -1,3 +1,5 @@
+Tipp:
+
 Um Dateien anzuzeigen kann man den Befehl ls verwenden.
 Allerdings werden dabei keine versteckten Dateien angezeigt.
 Um versteckte Dateien anzuzeigen, muss der Befehl "ls" mit einem bestimmten Parameter aufgerufen werden.

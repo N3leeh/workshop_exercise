@@ -1,5 +1,6 @@
 Tipp 1:
-Um eine Ausgabe eines Befehls in eine andere Datei zu schreiben kannst du das Größer-Symbol > verwenden.
-Beispiel:	
+
+Um eine Ausgabe eines Befehls in eine andere Datei zu schreiben kannst du Redirections (Größer-Symbol > ) verwenden.
+Beispiel:
 
 date > ~/heute
