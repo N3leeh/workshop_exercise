@@ -9,7 +9,8 @@
     teil1: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11']
     teil2: ['12', '13', '14', '15', '16', '17', '18', '19', '20', '21'] 
     etc_files: ['00_readme.md', '00_solution', '00_tipps']
-    sidequests: ['01', '02']
+    pro: ['pro_01', 'pro_02', 'pro_03', 'pro_04', 'pro_05', 'pro_06', 'pro_07']
+    sidequests: ['sidequest01', 'sidequest02']
 
   # Teilnehmerliste aus dem Repo webtty-playground. Anderer Pfad:
   #   ansible-playbook setup-exercises.yaml -e teilnehmerliste=/pfad/jailed.yml
@@ -20,7 +21,8 @@
     - create-user
     - create-exercises
 
-# Aufruf mit Tags; teil1 legt Aufgaben für Tag 1 an, teil2 für Tag 2
+# Aufruf mit Tags; teil1 legt Aufgaben für Tag 1 an, teil2 für Tag 2,
+# pro die Zusatzaufgaben und Sidequests
 #
 # ansible-playbook setup-exercises.yaml --tags=teil1
 

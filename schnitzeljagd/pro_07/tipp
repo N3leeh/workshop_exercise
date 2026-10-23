@@ -1,0 +1,8 @@
+Tipp:
+
+Die normalen Rechte (rwx) sehen ganz harmlos aus.
+Neben diesen Rechten gibt es unter Linux noch sogenannte Datei-Attribute.
+Suche in den Manpages nach "attribute" (man -k attribute).
+
+Hinweis: Das Attribut entfernen darfst du in dieser Umgebung nicht -
+auch das ist eine Erkenntnis!

@@ -1,0 +1,7 @@
+Tipp:
+
+Die Shell merkt sich den Exitcode des zuletzt ausgeführten Befehls
+in einer besonderen Variable mit dem Namen "?".
+
+Die Bedeutung der Exitcodes von ls findest du in der Manpage von ls
+(ganz unten, Abschnitt "Exit status").

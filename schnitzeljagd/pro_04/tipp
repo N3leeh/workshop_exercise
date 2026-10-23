@@ -1,0 +1,6 @@
+Tipp:
+
+Erinnere dich an die drei Kanäle (siehe 00_tipps):
+0 = StdIn, 1 = StdOut, 2 = StdErr
+
+Mit ">" leitest du Kanal 1 um. Wie könntest du Kanal 2 umleiten?

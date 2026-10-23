@@ -1,1 +1,6 @@
 Welchen Exitcode hat folgender Befehl?
+
+ls /gibtesnicht
+
+Und welchen Exitcode haben "true" und "false"?
+Warum ist der Exitcode von ls nicht einfach 1?

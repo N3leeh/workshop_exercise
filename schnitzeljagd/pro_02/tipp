@@ -1,0 +1,9 @@
+Tipp:
+
+Mit "find" kannst du auch nach Berechtigungen suchen. Schau in der Manpage
+von find nach der Option "-perm" (mit "/" kannst du in der Manpage suchen).
+
+Du wirst viele Fehlermeldungen ("Permission denied") sehen.
+Wie kannst du die Fehlerausgabe verschwinden lassen? (siehe auch pro_04)
+
+Zum Zählen der Ergebnisse hilft dir "wc".

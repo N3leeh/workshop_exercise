@@ -146,3 +146,41 @@
 
 # Aufgabe 21: Die Variable KAREN wird in der Rolle create-user in plankton's
 # .bashrc und .profile gesetzt (sudo -i startet eine Login-Shell).
+
+# Zusatzaufgaben (pro_*) und Sidequests
+#######################################
+# Aufruf: ansible-playbook setup-exercises.yaml --tags=pro
+- name: Erstelle Zusatzaufgaben und Sidequests
+  tags: ['pro', 'never']
+  ansible.builtin.copy:
+    src: "{{ src_dir }}/{{ item[0] }}"
+    owner: "{{ item[1] }}"
+    group: users
+    dest: "/home/{{ item[1] }}/schnitzeljagd/"
+  with_nested:
+    - "{{ pro + sidequests }}"
+    - "{{ ssh_jailed_users }}"
+
+# pro_06: Datei gehört dem User, der Ordner ist aber nicht schreibbar ->
+# Löschen scheitert, obwohl man Besitzer der Datei ist.
+- name: Ordner ohne Schreibrecht für pro_06
+  tags: ['pro', 'never']
+  ansible.builtin.file:
+    path: "/home/{{ item }}/schnitzeljagd/pro_06/unterordner"
+    state: directory
+    owner: "{{ item }}"
+    group: users
+    mode: '0555'
+  loop: "{{ ssh_jailed_users }}"
+
+# pro_07: Datei mit Attribut "immutable" (chattr +i, sichtbar mit lsattr).
+# Im Container fehlt CAP_LINUX_IMMUTABLE, daher kann auch root dort das
+# Attribut nicht entfernen. Benötigt ein Dateisystem mit Attribut-Support
+# (ext4, xfs, btrfs). teardown.yml in webtty-playground entfernt das
+# Attribut vor dem Löschen der Home-Verzeichnisse.
+- name: Unveränderliche Datei für pro_07
+  tags: ['pro', 'never']
+  ansible.builtin.file:
+    path: "/home/{{ item }}/schnitzeljagd/pro_07/datei"
+    attributes: '+i'
+  loop: "{{ ssh_jailed_users }}"

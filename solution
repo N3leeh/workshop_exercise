@@ -56,3 +56,16 @@ Nocturnal Monster Puppy
 20. uname -r 
 21. sudo -i -u plankton echo '$KAREN'   (einfache Anführungszeichen! Mit "..." expandiert die eigene Shell $KAREN vorher zu einem leeren String)
     oder interaktiv: sudo -i -u plankton, dann echo $KAREN
+# Lösung der Zusatzaufgaben (pro_*)
+pro_01. ls -l /usr/bin/passwd -> "s" statt "x" beim Besitzer (SUID-Bit). Das Programm läuft
+        mit den Rechten des Besitzers (root), sonst könnte ein normaler User /etc/shadow nicht ändern.
+pro_02. SUID (Set User ID). find / -perm -4000 -type f 2>/dev/null | wc -l   (Anzahl hängt vom Image ab)
+pro_03. ls /gibtesnicht; echo $?  -> 2 ("serious trouble", z.B. Datei nicht gefunden; 1 = "minor problems")
+        true -> 0, false -> 1
+pro_04. ls /gibtesnicht /etc/hostname 2> fehler
+pro_05. 1) chmod +x skript.sh  2) name=$(whoami) (keine Leerzeichen um "=")  3) if [ ... ]; then
+pro_06. ls -ld unterordner -> dr-xr-xr-x: Zum Löschen braucht man Schreibrecht auf den ORDNER,
+        nicht auf die Datei. chmod u+w unterordner && rm unterordner/some_file
+pro_07. lsattr datei -> Attribut "i" (immutable). Kann nur mit chattr -i entfernt werden; dafür
+        braucht man CAP_LINUX_IMMUTABLE, das im Container fehlt -> auch sudo hilft nicht.
+sidequest01. /usr/games/fortune | /usr/games/cowsay

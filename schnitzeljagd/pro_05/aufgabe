@@ -1,3 +1,8 @@
-In diesem Ordner findest du ein kleines Skript
-Leider funktioniert es nicht wie gewünscht. 
+In diesem Ordner findest du ein kleines Skript "skript.sh".
+Leider funktioniert es nicht wie gewünscht.
 Kannst du es korrigieren?
+
+Das Skript soll dich mit deinem Usernamen begrüßen und ausgeben,
+wie viele Dateien im aktuellen Ordner liegen.
+
+Es gibt insgesamt drei Fehler. Einer davon steckt nicht im Text des Skripts.

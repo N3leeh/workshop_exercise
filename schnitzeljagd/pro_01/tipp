@@ -1,0 +1,7 @@
+Tipp:
+
+Schau dir die Rechte der Datei mit "ls -l /usr/bin/passwd" genau an.
+An der Stelle, an der normalerweise ein "x" steht, findest du einen anderen Buchstaben.
+
+Überlege: Das Passwort wird in /etc/shadow gespeichert. Wem gehört diese Datei
+und wer darf hineinschreiben? Wie kann dann ein normaler User sein eigenes Passwort ändern?

@@ -1,2 +1,4 @@
-Hier findest du eine einfache Datei. Versuche sie zu löschen.
-Was fällt auf?
+Hier findest du eine einfache Datei "datei". Versuche sie zu löschen.
+Was fällt auf? Klappt es mit sudo?
+
+Finde heraus, warum die Datei nicht gelöscht werden kann.

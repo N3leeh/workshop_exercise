@@ -1,0 +1,9 @@
+Tipp:
+
+1. Versuche das Skript mit "./skript.sh" zu starten. Was sagt die Fehlermeldung?
+   Schau dir die Rechte der Datei mit "ls -l" an.
+2. Bei der Zuweisung von Variablen ist die Shell sehr pingelig, was Leerzeichen angeht.
+3. Schau dir genau an, wie if-Abfragen aufgebaut sind ("help if").
+   Was trennt die Bedingung vom "then"?
+
+Mit "bash -n skript.sh" kannst du die Syntax prüfen, ohne das Skript auszuführen.
