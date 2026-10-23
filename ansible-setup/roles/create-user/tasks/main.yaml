@@ -8,21 +8,30 @@
     shell: /bin/bash
     uid: 1400
     group: users
-    groups: jailed
+    # NICHT in der Gruppe jailed: plankton soll sich nicht per SSH/wetty
+    # anmelden können. groups: "" entfernt die Gruppe auch auf Hosts, auf
+    # denen webtty-playground plankton früher in jailed eingetragen hat.
+    groups: ""
     password: '!'
     password_lock: true
     state: present
 
+# .bashrc für interaktive Shells (sudo -u plankton bash),
+# .profile für Login-Shells (sudo -i -u plankton). Debian's Standard-.profile
+# liest .bashrc zwar ein, aber nur wenn es aus /etc/skel kopiert wurde.
 - name: Erstelle User Variable
   tags: ['teil2']
   ansible.builtin.lineinfile:
     create: true
     insertafter: "EOF"
     line: "export KAREN=p"
-    path: /home/plankton/.bashrc
+    path: "/home/plankton/{{ item }}"
     state: present
     owner: plankton
     group: users
     mode: '0644'
+  loop:
+    - .bashrc
+    - .profile
 
 ...

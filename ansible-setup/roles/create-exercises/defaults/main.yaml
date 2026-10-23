@@ -1,3 +1,4 @@
 ---
-scr_dir: ~/workshop_exercise/schnitzeljagd
-teilnehmerliste: ~/webtty-playground/vars/jailed.yml
+# Quellverzeichnis der Aufgaben (relativ zum Playbook, unabhängig davon,
+# wohin das Repo geklont wurde). Kann im Playbook überschrieben werden.
+src_dir: "{{ playbook_dir }}/../schnitzeljagd"

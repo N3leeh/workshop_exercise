@@ -21,6 +21,9 @@
     owner: "{{ item[1] }}"
     group: users
     dest: "/home/{{ item[1] }}/schnitzeljagd/{{ item[0] }}"
+    # Die Lösungsdatei der Teilnehmenden bei einem erneuten Lauf nicht
+    # überschreiben; readme und tipps dürfen aktualisiert werden.
+    force: "{{ item[0] != '00_solution' }}"
   with_nested:
     - "{{ etc_files }}"
     - "{{ ssh_jailed_users }}"
@@ -95,11 +98,17 @@
    - "{{ ssh_jailed_users }}"
 
 # Richtige Lösung ist der Softlink!
-- name: Erstelle Datei für Lösung für Aufgabe 12
+# bestellung_7 ist ein symbolischer Link (relativ, damit er auch im Container
+# unter demselben Pfad funktioniert). Hardlinks teilen sich die Inode mit
+# "bestellung", der Softlink hat eine eigene Inode und zeigt in "ls -l" mit
+# "->" auf sein Ziel.
+- name: Erstelle Softlink für Lösung für Aufgabe 12
   tags: ['teil2', 'never']
-  ansible.builtin.copy:
-    src: "{{ src_dir }}/12/unterordner/bestellung"
+  ansible.builtin.file:
+    src: "bestellung"
     dest: "/home/{{ item }}/schnitzeljagd/12/unterordner/bestellung_7"
+    state: link
+    force: true
     owner: "{{ item }}"
     group: users
   loop: "{{ ssh_jailed_users }}"
@@ -135,34 +144,5 @@
     group: 500
   loop: "{{ ssh_jailed_users }}"
 
-# Aufgabe 21; env-Variable für Plankton; Test mit User-Service und linger-User
-- name: Erstelle Ordnerstruktur für SystemD-Service
-  tags: ['teil2', 'never']
-  ansible.builtin.file:
-    path: /home/plankton/.config/systemd/user
-    state: directory
-    owner: plankton
-    group: users
-    mode: 0755
-
-- name: Erstelle Env-Service für Aufgabe 21
-  tags: ['teil2', 'never']
-  ansible.builtin.template:
-    src: set_env@service
-    dest: /home/plankton/.config/systemd/user/set-env.service
-    owner: plankton
-    group: users
-    mode: '0644'
-
-- name: Enable Linger User
-  ansible.builtin.command: 
-    cmd: "/usr/bin/loginctl enable-linger plankton"
-
-- name: Starte ENV-Service
-  ansible.builtin.systemd_service:
-    name: set-env.service
-    scope: user
-    state: started
-    enabled: true
-    daemon_reload: true
-  become_user: "plankton"
+# Aufgabe 21: Die Variable KAREN wird in der Rolle create-user in plankton's
+# .bashrc und .profile gesetzt (sudo -i startet eine Login-Shell).
