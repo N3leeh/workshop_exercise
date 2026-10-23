@@ -1,0 +1,12 @@
+Prozesse und Signale
+
+In diesem Ordner liegt das Skript "qualle.sh".
+1. Starte es im Hintergrund, so dass du dein Terminal weiter benutzen kannst.
+2. Finde die Prozess-ID (PID) der Qualle heraus - auf mindestens zwei Arten.
+3. Versuche die Qualle mit "kill" zu beenden. Was passiert?
+4. Die Qualle reagiert auf ein bestimmtes Signal. Welches? (Tipp: Schau ins Skript.)
+   Schicke ihr dieses Signal.
+
+Bonus:
+- Starte die Qualle noch einmal und beende sie mit einem Signal, das sie NICHT abfangen kann.
+- Warum kann ein Programm genau dieses Signal nicht abfangen?

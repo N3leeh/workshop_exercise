@@ -1,0 +1,7 @@
+Tipp:
+
+- Ein "&" am Ende einer Befehlszeile startet den Befehl im Hintergrund.
+- Laufende Hintergrund-Jobs zeigt "jobs -l". Prozesse findest du mit "ps" oder "pgrep".
+- "kill" schickt standardmäßig das Signal SIGTERM.
+- Alle Signale listet "kill -l" auf, beschrieben werden sie in "man 7 signal".
+- Mit "kill -SIGNALNAME PID" schickst du ein bestimmtes Signal.

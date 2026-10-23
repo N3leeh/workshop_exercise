@@ -1,0 +1,11 @@
+Einbruchsversuch!
+
+In der Datei "auth.log" stehen die SSH-Anmeldungen eines Servers.
+Jemand versucht offenbar, Passwörter zu erraten.
+
+1. Wie viele fehlgeschlagene Anmeldungen ("Failed password") gibt es insgesamt?
+2. Von welcher IP-Adresse kamen die meisten fehlgeschlagenen Versuche?
+3. Welchen Benutzernamen hat diese IP am häufigsten ausprobiert?
+4. Gab es danach von dieser IP eine erfolgreiche Anmeldung ("Accepted")?
+
+Versuche alle Antworten mit einer Pipeline zu ermitteln, ohne zu zählen.

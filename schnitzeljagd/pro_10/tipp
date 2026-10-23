@@ -1,0 +1,7 @@
+Tipp:
+
+- "grep" filtert Zeilen, "grep -c" zählt sie.
+- "awk '{print $11}'" gibt das 11. Wort einer Zeile aus.
+  Mit "$NF" bekommst du das letzte Wort, mit "$(NF-3)" das viertletzte.
+- "sort | uniq -c | sort -n" zählt, wie oft etwas vorkommt, und sortiert nach der Anzahl.
+- "tail -1" zeigt die letzte Zeile.

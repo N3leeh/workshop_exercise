@@ -184,3 +184,11 @@
     path: "/home/{{ item }}/schnitzeljagd/pro_07/datei"
     attributes: '+i'
   loop: "{{ ssh_jailed_users }}"
+
+# pro_08: Skript muss direkt startbar sein (./qualle.sh &)
+- name: Ausführbares Skript für pro_08
+  tags: ['pro', 'never']
+  ansible.builtin.file:
+    path: "/home/{{ item }}/schnitzeljagd/pro_08/qualle.sh"
+    mode: '0755'
+  loop: "{{ ssh_jailed_users }}"

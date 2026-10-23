@@ -69,3 +69,13 @@ pro_06. ls -ld unterordner -> dr-xr-xr-x: Zum Löschen braucht man Schreibrecht 
 pro_07. lsattr datei -> Attribut "i" (immutable). Kann nur mit chattr -i entfernt werden; dafür
         braucht man CAP_LINUX_IMMUTABLE, das im Container fehlt -> auch sudo hilft nicht.
 sidequest01. /usr/games/fortune | /usr/games/cowsay
+pro_08. ./qualle.sh &   ->  jobs -l / pgrep -a qualle / ps aux | grep qualle
+        kill PID -> wird ignoriert (SIGTERM abgefangen); kill -USR1 PID -> Erfolgsmeldung
+        Bonus: kill -9 PID (SIGKILL kann nicht abgefangen werden, der Kernel beendet den Prozess direkt)
+pro_09. file schatz (oder od -c schatz | head -1 -> gzip) ; tar xzf schatz ; base64 -d innen/nachricht
+pro_10. 1) grep -c "Failed password" auth.log                                   -> 96
+        2) grep "Failed password" auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -n | tail -1
+                                                                                   -> 203.0.113.42 (57x)
+        3) grep "Failed password" auth.log | grep 203.0.113.42 | awk '{print $(NF-5)}' | sort | uniq -c | sort -n | tail -1
+                                                                                   -> root (18x)
+        4) grep Accepted auth.log | grep 203.0.113.42  -> ja, als "admin" (Passwort erraten!)

@@ -83,6 +83,11 @@ Ansible-Playbook + Rolle zum erstellen der Dateien + Verzeichnisse für die Teil
 5. Skript korrigieren
 6. Rechte auf Dateiordner
 7. Besondere Datei-Attribute
+8. Prozesse und Signale (&, jobs, ps/pgrep, kill, trap)
+9. Matrjoschka: Dateityp erkennen und auspacken (file/od, tar, base64)
+10. Log-Analyse: Einbruchsversuch in auth.log finden (grep, awk, sort, uniq)
+
+Ausrollen mit `ansible-playbook setup-exercises.yaml --tags=pro`.
 
 ## Lösung
 Die Lösung basiert auf Linux-Kernel-Codenames; eine Liste davon findet sich z.B. hier:
