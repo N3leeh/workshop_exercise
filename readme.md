@@ -6,11 +6,11 @@ Ansible-Playbook + Rolle zum erstellen der Dateien + Verzeichnisse für die Teil
 # Themen Studenten-Workshop
 
 ## Tag 1
-- Ein bisschen was zu Linux, Thorvalds, Supercomputer etc.
+- Ein bisschen was zu Linux, Torvalds, Supercomputer etc.
 - Einführung in die Shell
     - was ist die Shell? Shell-Prompt; Eingabehilfen; Konfiguration
     - Anmeldung
-    - Basis-Befehle (id, pwd, whomami, date, ls, echo etc.) und Aufruf
+    - Basis-Befehle (id, pwd, whoami, date, ls, echo etc.) und Aufruf
     - Verzeichnisbaum; absolute und relative Pfade
     - Shellsonderzeichen, Pipelines, Escaping, Wildcards, Variablen etc.
     - Infos über Dateien und Befehle
@@ -85,7 +85,7 @@ Ansible-Playbook + Rolle zum erstellen der Dateien + Verzeichnisse für die Teil
 7. Besondere Datei-Attribute
 
 ## Lösung
-Die Lösung basiert auf Linkx-Kernel-Codenames; eine Liste davon findet sich z.B. hier:
+Die Lösung basiert auf Linux-Kernel-Codenames; eine Liste davon findet sich z.B. hier:
 - https://www.pro-linux.de/artikel/2/1959/schafe-und-kojoten-die-internen-kernel-namen-von-linux.html
 - https://handwiki.org/wiki/List_of_Linux_kernel_names
 - https://lunduke.substack.com/p/the-best-linux-kernel-release-code

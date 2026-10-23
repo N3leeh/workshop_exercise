@@ -35,7 +35,7 @@ Nocturnal Monster Puppy
 # Lösung der einzelnen Aufgaben 
 (verschiedene Lösungswege möglich)
 1. grep -i "buchstabe" text
-2. mv spongebog/krabbenburger patrick/
+2. mv spongebob/krabbenburger patrick/
 3. man rm
 4. ls unterordner | cat -n
 5. id 0
@@ -51,7 +51,8 @@ Nocturnal Monster Puppy
 15. chown -R username:gruppe unterordner; find . -name "buchstabe" -type f
 16. grep -c Wahnsinn text
 17. find . -nouser -nogroup
-18. cat text | tr ',' '\n' | sort | uniq -c | sort
+18. cat text | tr ',' '\n' | sort | uniq -c | sort -n
 19. rev text | tac | tail -n 1
 20. uname -r 
-21. sudo -i -u plankton "echo $KAREN"
+21. sudo -i -u plankton echo '$KAREN'   (einfache Anführungszeichen! Mit "..." expandiert die eigene Shell $KAREN vorher zu einem leeren String)
+    oder interaktiv: sudo -i -u plankton, dann echo $KAREN
