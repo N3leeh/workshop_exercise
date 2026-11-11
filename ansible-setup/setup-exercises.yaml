@@ -4,16 +4,10 @@
   gather_facts: true
   become: true
 
-  vars:
-    src_dir: "{{ playbook_dir }}/../schnitzeljagd"
-    teil1: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11']
-    teil2: ['12', '13', '14', '15', '16', '17', '18', '19', '20', '21'] 
-    etc_files: ['00_readme.md', '00_solution', '00_tipps']
-    pro: ['pro_01', 'pro_02', 'pro_03', 'pro_04', 'pro_05', 'pro_06', 'pro_07', 'pro_08', 'pro_09', 'pro_10']
-    sidequests: ['sidequest01', 'sidequest02']
-
   # Teilnehmerliste aus dem Repo webtty-playground. Anderer Pfad:
   #   ansible-playbook setup-exercises.yaml -e teilnehmerliste=/pfad/jailed.yml
+  # Aufgabenlisten (teil1, teil2, pro, ...) stehen in
+  # roles/create-exercises/defaults/main.yaml
   vars_files:
     - "{{ teilnehmerliste | default('~/webtty-playground/vars/jailed.yml') }}"
 
@@ -21,13 +15,18 @@
     - create-user
     - create-exercises
 
-# Aufruf mit Tags; teil1 legt Aufgaben für Tag 1 an, teil2 für Tag 2,
-# pro die Zusatzaufgaben und Sidequests
+# Aufruf mit Tags. Jeder Teil kann einzeln ausgebracht werden:
 #
-# ansible-playbook setup-exercises.yaml --tags=teil1
+#   ansible-playbook setup-exercises.yaml --tags=start   # Ordner + Lösungsdatei
+#   ansible-playbook setup-exercises.yaml --tags=teil1   # Tag 1
+#   ansible-playbook setup-exercises.yaml --tags=teil2   # Tag 2 (inkl. User plankton)
+#   ansible-playbook setup-exercises.yaml --tags=pro     # Zusatzaufgaben
+#
+# Ohne --tags werden nur User plankton und die Start-Dateien angelegt.
 
 ### Lösung der Übungsaufgaben geben von folgenden Ergebnissen aus
 #
 # Kernel-Major-Version 6
 # Debian-Major-Version 13 (Image debian:trixie in webtty-playground)
-# 11 Workshop-Teilnehmer
+# Gruppe "jailed" (alle Teilnehmenden)
+# 1 Befehl unter /usr/bin mit einem Sonderzeichen als Namen ("[")

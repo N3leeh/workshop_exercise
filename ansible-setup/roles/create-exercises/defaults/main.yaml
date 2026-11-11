@@ -2,3 +2,22 @@
 # Quellverzeichnis der Aufgaben (relativ zum Playbook, unabhängig davon,
 # wohin das Repo geklont wurde). Kann im Playbook überschrieben werden.
 src_dir: "{{ playbook_dir }}/../schnitzeljagd"
+
+# Teilnehmende (wird normalerweise aus webtty-playground/vars/jailed.yml gelesen)
+ssh_jailed_users: []
+
+# Gruppe, der die Aufgabendateien gehören
+exercise_group: users
+
+# Dateien, die zu Beginn des Workshops (Tag "start") für alle angelegt werden
+etc_files: ['00_readme.md', '00_solution', '00_tipps']
+
+# Aufgaben je Teil
+teil1: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11']
+teil2: ['12', '13', '14', '15', '16', '17', '18', '19', '20', '21']
+pro: ['pro_01', 'pro_02', 'pro_03', 'pro_04', 'pro_05', 'pro_06', 'pro_07', 'pro_08', 'pro_09', 'pro_10']
+sidequests: ['sidequest01', 'sidequest02']
+
+# pro_07 setzt "chattr +i". Das braucht ein Dateisystem mit Attribut-Support
+# (ext4, xfs, btrfs). In Test-Containern (overlayfs, z.B. Molecule) auf false.
+pro07_immutable: true

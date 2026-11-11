@@ -1,25 +1,37 @@
 ---
-# Aufgaben 
+# Aufgaben
 ###########
 #
 # Eine Liste aller Aufgaben findet sich in der README.md
+#
+# Die Teile können einzeln und in beliebiger Reihenfolge ausgebracht werden:
+#   --tags start   Ordner ~/schnitzeljagd + readme, tipps, Lösungsdatei
+#   --tags teil1   Aufgaben 01-11 (Tag 1)
+#   --tags teil2   Aufgaben 12-21 (Tag 2)
+#   --tags pro     Zusatzaufgaben und Sidequests
+# Die Start-Tasks laufen bei jedem Teil mit, damit jeder Teil auch allein
+# funktioniert.
+
+# Start (zu Beginn des Workshops)
+#################################
 
 - name: Erstelle Schnitzeljagd-Ordner
-  tags: ['teil1', 'never']
-  ansible.builtin.file: 
+  tags: ['start', 'teil1', 'teil2', 'pro']
+  ansible.builtin.file:
     path: "/home/{{ item }}/schnitzeljagd"
     mode: '0750'
     owner: "{{ item }}"
     state: directory
-    group: users
+    group: "{{ exercise_group }}"
   loop: "{{ ssh_jailed_users }}"
 
 - name: Erstelle Readme.md, tipps und solution
-  tags: ['teil1']
+  tags: ['start', 'teil1', 'teil2', 'pro']
   ansible.builtin.copy:
     src: "{{ src_dir }}/{{ item[0] }}"
     owner: "{{ item[1] }}"
-    group: users
+    group: "{{ exercise_group }}"
+    mode: '0644'
     dest: "/home/{{ item[1] }}/schnitzeljagd/{{ item[0] }}"
     # Die Lösungsdatei der Teilnehmenden bei einem erneuten Lauf nicht
     # überschreiben; readme und tipps dürfen aktualisiert werden.
@@ -28,19 +40,23 @@
     - "{{ etc_files }}"
     - "{{ ssh_jailed_users }}"
 
-# Erstelle Teil 1
-- name: Erstelle Schnitzeljagd
+# Teil 1
+########
+# force: false bei allen Aufgaben-Kopien: Ein erneuter Lauf überschreibt
+# keine Dateien, die Teilnehmende bereits bearbeitet haben, und setzt keine
+# Rechte zurück (Idempotenz).
+
+- name: Erstelle Aufgaben für Tag 1 / Teil 1
   tags: ['teil1', 'never']
   ansible.builtin.copy:
     src: "{{ src_dir }}/{{ item[0] }}"
     owner: "{{ item[1] }}"
-    group: users
-    # defaults to umask
-    #mode: '0750'
+    group: "{{ exercise_group }}"
     dest: "/home/{{ item[1] }}/schnitzeljagd/"
-  with_nested: 
-  - "{{ teil1 }}"
-  - "{{ ssh_jailed_users }}"
+    force: false
+  with_nested:
+    - "{{ teil1 }}"
+    - "{{ ssh_jailed_users }}"
 
 # Aufgabe 8; finde und führe Alias aus
 - name: Erstelle Alias für Aufgabe 8
@@ -52,7 +68,7 @@
     line: "alias quallenfischersong=/etc/quallenfischen/quallenfischersong.sh"
     state: present
     owner: "{{ item }}"
-    group: users
+    group: "{{ exercise_group }}"
     mode: '0644'
   loop: "{{ ssh_jailed_users }}"
 
@@ -72,17 +88,21 @@
     group: root
     mode: "0755"
 
-# Erstelle Aufgaben für Teil2
+# Teil 2
+########
+
 - name: Erstelle Aufgaben für Tag 2 / Teil 2
   tags: ['teil2', 'never']
   ansible.builtin.copy:
     src: "{{ src_dir }}/{{ item[0] }}"
     owner: "{{ item[1] }}"
-    group: users
+    group: "{{ exercise_group }}"
     dest: "/home/{{ item[1] }}/schnitzeljagd/"
-  with_nested: 
-  - "{{ teil2 }}"
-  - "{{ ssh_jailed_users }}"
+    force: false
+  with_nested:
+    # Aufgabe 15 wird unten gesondert angelegt (Unterordner gehört root)
+    - "{{ teil2 | difference(['15']) }}"
+    - "{{ ssh_jailed_users }}"
 
 # Aufgabe 12; Dateien vergleichen (Hardlinks); alle Fake
 - name: Erstelle Hardlinks
@@ -92,10 +112,10 @@
     dest: "/home/{{ item[1] }}/schnitzeljagd/12/unterordner/bestellung_{{ item[0] }}"
     state: hard
     owner: "{{ item[1] }}"
-    group: users
+    group: "{{ exercise_group }}"
   with_nested:
-   - "{{ ['1', '2', '3', '4', '5', '6', '8', '9'] }}" # Datei-Namen der Hardlinks
-   - "{{ ssh_jailed_users }}"
+    - ['1', '2', '3', '4', '5', '6', '8', '9'] # Datei-Namen der Hardlinks
+    - "{{ ssh_jailed_users }}"
 
 # Richtige Lösung ist der Softlink!
 # bestellung_7 ist ein symbolischer Link (relativ, damit er auch im Container
@@ -110,12 +130,12 @@
     state: link
     force: true
     owner: "{{ item }}"
-    group: users
+    group: "{{ exercise_group }}"
   loop: "{{ ssh_jailed_users }}"
 
 # Aufgabe 14; nicht lesbare Datei lesbar machen
 - name: Passe Berechtigungen für Aufgabe 14 an
-  tags: ['teil2', 'never'] 
+  tags: ['teil2', 'never']
   ansible.builtin.file:
     path: "/home/{{ item }}/schnitzeljagd/14/krabbenburgergeheimrezept"
     owner: root
@@ -124,15 +144,42 @@
   loop: "{{ ssh_jailed_users }}"
 
 # Aufgabe 15; nicht lesbaren Ordner lesbar machen
-- name: Passe Berechtigungen für Aufgabe 15 an
+# Der Ordner 15 und die Texte gehören dem User, der Unterordner root (0700).
+# Getrennt von der allgemeinen Kopie, weil diese sonst bei jedem Lauf die
+# Besitzer zurück auf den User setzt (nicht idempotent, und eine bereits
+# gelöste Aufgabe wäre wieder "ungelöst").
+- name: Erstelle Ordner für Aufgabe 15
   tags: ['teil2', 'never']
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/15/unterordner"
+    path: "/home/{{ item }}/schnitzeljagd/15"
     state: directory
-    recurse: true
+    owner: "{{ item }}"
+    group: "{{ exercise_group }}"
+    mode: '0755'
+  loop: "{{ ssh_jailed_users }}"
+
+- name: Lege Aufgabe und Tipps für Aufgabe 15 ab
+  tags: ['teil2', 'never']
+  ansible.builtin.copy:
+    src: "{{ src_dir }}/15/{{ item[0] }}"
+    dest: "/home/{{ item[1] }}/schnitzeljagd/15/{{ item[0] }}"
+    owner: "{{ item[1] }}"
+    group: "{{ exercise_group }}"
+    mode: '0644'
+  with_nested:
+    - ['aufgabe', 'tipp1', 'tipp2', 'tipp3']
+    - "{{ ssh_jailed_users }}"
+
+- name: Lege Unterordner für Aufgabe 15 ab (gehört root, nicht lesbar)
+  tags: ['teil2', 'never']
+  ansible.builtin.copy:
+    src: "{{ src_dir }}/15/unterordner"
+    dest: "/home/{{ item }}/schnitzeljagd/15/"
     owner: root
     group: root
     mode: '0700'
+    directory_mode: '0700'
+    force: false
   loop: "{{ ssh_jailed_users }}"
 
 # Aufgabe 17; Datei die keinem User und keiner Gruppe gehört
@@ -149,14 +196,15 @@
 
 # Zusatzaufgaben (pro_*) und Sidequests
 #######################################
-# Aufruf: ansible-playbook setup-exercises.yaml --tags=pro
+
 - name: Erstelle Zusatzaufgaben und Sidequests
   tags: ['pro', 'never']
   ansible.builtin.copy:
     src: "{{ src_dir }}/{{ item[0] }}"
     owner: "{{ item[1] }}"
-    group: users
+    group: "{{ exercise_group }}"
     dest: "/home/{{ item[1] }}/schnitzeljagd/"
+    force: false
   with_nested:
     - "{{ pro + sidequests }}"
     - "{{ ssh_jailed_users }}"
@@ -169,7 +217,7 @@
     path: "/home/{{ item }}/schnitzeljagd/pro_06/unterordner"
     state: directory
     owner: "{{ item }}"
-    group: users
+    group: "{{ exercise_group }}"
     mode: '0555'
   loop: "{{ ssh_jailed_users }}"
 
@@ -178,12 +226,27 @@
 # Attribut nicht entfernen. Benötigt ein Dateisystem mit Attribut-Support
 # (ext4, xfs, btrfs). teardown.yml in webtty-playground entfernt das
 # Attribut vor dem Löschen der Home-Verzeichnisse.
+# (Nicht über ansible.builtin.file attributes: '+i' - das meldet bei jedem
+# Lauf "changed", weil es "+i" mit z.B. "ie" vergleicht.)
+- name: Prüfe Attribute der Datei für pro_07
+  tags: ['pro', 'never']
+  ansible.builtin.command: "lsattr /home/{{ item }}/schnitzeljagd/pro_07/datei"
+  register: pro07_lsattr
+  changed_when: false
+  check_mode: false
+  loop: "{{ ssh_jailed_users }}"
+  when: pro07_immutable | bool
+
 - name: Unveränderliche Datei für pro_07
   tags: ['pro', 'never']
-  ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/pro_07/datei"
-    attributes: '+i'
-  loop: "{{ ssh_jailed_users }}"
+  ansible.builtin.command: "chattr +i /home/{{ item.item }}/schnitzeljagd/pro_07/datei"
+  loop: "{{ pro07_lsattr.results }}"
+  loop_control:
+    label: "{{ item.item }}"
+  when:
+    - pro07_immutable | bool
+    - "'i' not in item.stdout.split()[0]"
+  changed_when: true
 
 # pro_08: Skript muss direkt startbar sein (./qualle.sh &)
 - name: Ausführbares Skript für pro_08
