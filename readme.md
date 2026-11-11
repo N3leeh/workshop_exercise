@@ -87,7 +87,58 @@ Ansible-Playbook + Rolle zum erstellen der Dateien + Verzeichnisse für die Teil
 9. Matrjoschka: Dateityp erkennen und auspacken (file/od, tar, base64)
 10. Log-Analyse: Einbruchsversuch in auth.log finden (grep, awk, sort, uniq)
 
-Ausrollen mit `ansible-playbook setup-exercises.yaml --tags=pro`.
+
+# Ausbringen (Ansible)
+
+Im Ordner `ansible-setup`. Die Teilnehmerliste kommt aus `~/webtty-playground/vars/jailed.yml`
+(anderer Pfad: `-e teilnehmerliste=/pfad/jailed.yml`). Jeder Teil kann einzeln und in beliebiger
+Reihenfolge ausgebracht werden; ein erneuter Lauf ändert nichts und überschreibt keine Arbeit der Teilnehmenden.
+
+| Befehl | Legt an |
+|---|---|
+| `ansible-playbook setup-exercises.yaml --tags=start` | Zu Beginn des Workshops: Ordner `~/schnitzeljagd` mit Lösungsdatei `00_solution`, `00_readme.md` und `00_tipps` |
+| `ansible-playbook setup-exercises.yaml --tags=teil1` | Aufgaben 01-11 (Tag 1) inkl. Alias und Skript für Aufgabe 8 |
+| `ansible-playbook setup-exercises.yaml --tags=teil2` | Aufgaben 12-21 (Tag 2) inkl. User `plankton` |
+| `ansible-playbook setup-exercises.yaml --tags=pro` | Zusatzaufgaben und Sidequests |
+
+Die Start-Dateien werden bei jedem Teil mit angelegt, falls sie noch fehlen.
+
+# Tests
+
+## Lösungsskript
+`tests/loese-schnitzeljagd.sh` löst die Schnitzeljagd so, wie es Teilnehmende tun würden, und prüft jeden
+Buchstaben gegen das Lösungswort. Es muss **als Teilnehmer** laufen und löst die Aufgaben wirklich
+(verschiebt Dateien, ändert Besitzer) - also nur mit einem Test-Account:
+
+```sh
+bash loese-schnitzeljagd.sh            # alles
+bash loese-schnitzeljagd.sh teil2      # nur Teil 2
+```
+
+Damit lässt sich vor jedem Workshop prüfen, ob die Aufgaben auf dem echten Server (z.B. nach einem
+Kernel- oder Debian-Update, Aufgaben 9 und 20) noch zum Lösungswort passen.
+
+## Pipeline (GitHub Actions)
+`.github/workflows/ci.yml`:
+- **Lint**: yamllint, shellcheck, ansible-lint (zunächst nicht blockierend)
+- **Syntax**: `ansible-playbook --syntax-check` und Liste der Tasks je Teil
+- **Molecule**: fünf Szenarien in `ansible-setup/molecule/`, jeweils in einem frischen
+  `debian:trixie`-Container:
+    - `start`, `teil1`, `teil2`, `pro`: jeder Teil **einzeln** - beweist, dass die Teile unabhängig sind
+    - `alle`: alle Teile zusammen, inkl. komplettem Lösungswort
+  
+  Ablauf je Szenario: Container erstellen, vorbereiten (Pakete wie im Jail-Image, Teilnehmende
+  `max`/`mellanie`), ausbringen, zweiter Lauf ohne Änderungen (Idempotenz), Lösungsskript als `max`.
+
+Lokal (Docker nötig):
+```sh
+pip install ansible-core molecule "molecule-plugins[docker]" requests
+ansible-galaxy collection install community.docker
+cd ansible-setup && molecule test -s teil2
+```
+
+Einschränkungen: Im Container wird `chattr +i` (pro_07) übersprungen, weil overlayfs keine
+Datei-Attribute kann. Host und Jail-Container sind im Test derselbe Container.
 
 ## Lösung
 Die Lösung basiert auf Linux-Kernel-Codenames; eine Liste davon findet sich z.B. hier:

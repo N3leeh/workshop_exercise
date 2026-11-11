@@ -1,0 +1,12 @@
+---
+# Bringt die Schnitzeljagd mit den Rollen aus ansible-setup/roles aus.
+# Welcher Teil ausgebracht wird, steuert "ansible_args: --tags=..." in der molecule.yml
+# des Szenarios (entspricht "ansible-playbook ... --tags <teil>").
+
+- name: Converge
+  hosts: all
+  vars:
+    src_dir: "{{ lookup('ansible.builtin.env', 'MOLECULE_PROJECT_DIRECTORY') }}/../schnitzeljagd"
+  roles:
+    - create-user
+    - create-exercises

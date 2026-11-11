@@ -1,0 +1,62 @@
+---
+# Prüft das Ergebnis:
+# 1. Nur die Teile des Szenarios wurden ausgebracht (Teile sind unabhängig).
+# 2. Die Schnitzeljagd lässt sich als Teilnehmer "max" wirklich lösen
+#    (tests/loese-schnitzeljagd.sh prüft jeden Buchstaben).
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  vars:
+    projekt: "{{ lookup('ansible.builtin.env', 'MOLECULE_PROJECT_DIRECTORY') }}"
+    # Erster Ordner jedes Teils, um zu prüfen, was ausgebracht wurde
+    marker:
+      teil1: '01'
+      teil2: '12'
+      pro: 'pro_01'
+  tasks:
+    - name: Prüfe, welche Teile vorhanden sind
+      tags: ['always']
+      ansible.builtin.stat:
+        path: "/home/max/schnitzeljagd/{{ marker[item] }}"
+      register: teile_stat
+      loop: "{{ marker.keys() | list }}"
+
+    - name: Nur die Teile des Szenarios dürfen vorhanden sein
+      tags: ['always']
+      ansible.builtin.assert:
+        that: item.stat.exists == (item.item in workshop_parts)
+        fail_msg: >-
+          Teil {{ item.item }} ist {{ 'vorhanden' if item.stat.exists else 'NICHT vorhanden' }},
+          erwartet: {{ 'vorhanden' if item.item in workshop_parts else 'nicht vorhanden' }}
+        quiet: true
+      loop: "{{ teile_stat.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    - name: Kopiere Lösungsskript
+      tags: ['always']
+      ansible.builtin.copy:
+        src: "{{ projekt }}/../tests/loese-schnitzeljagd.sh"
+        dest: /usr/local/bin/loese-schnitzeljagd.sh
+        mode: '0755'
+
+    - name: Löse die Schnitzeljagd als Teilnehmer max
+      tags: ['always']
+      ansible.builtin.command:
+        cmd: "runuser -l max -c 'FORCE_COLOR=1 loese-schnitzeljagd.sh {{ workshop_parts | join(' ') }}'"
+      register: loesung
+      changed_when: false
+      failed_when: false
+
+    - name: Ergebnis des Lösungsskripts
+      tags: ['always']
+      ansible.builtin.debug:
+        var: loesung.stdout_lines
+
+    - name: Alle Aufgaben müssen lösbar sein
+      tags: ['always']
+      ansible.builtin.assert:
+        that: loesung.rc == 0
+        fail_msg: "Mindestens eine Aufgabe ist nicht lösbar - siehe Ausgabe oben."
+        quiet: true

@@ -1,0 +1,45 @@
+---
+# Szenario "teil2": Nur Teil 2 (Tag 2) auf einem frischen System - ohne Teil 1.
+# Aufruf (im Ordner ansible-setup):  molecule test -s teil2
+dependency:
+  name: galaxy
+  enabled: false
+driver:
+  name: docker
+platforms:
+  - name: schnitzeljagd-teil2
+    image: debian:trixie
+    pre_build_image: true
+    command: sleep infinity
+provisioner:
+  name: ansible
+  # entspricht "ansible-playbook setup-exercises.yaml --tags teil2"
+  # (Molecule gibt ansible_args nicht an seine create/destroy-Playbooks weiter;
+  # prepare/verify laufen trotzdem, weil ihre Tasks den Tag "always" tragen)
+  ansible_args:
+    - "--tags=teil2"
+  env:
+    ANSIBLE_ROLES_PATH: ${MOLECULE_PROJECT_DIRECTORY}/roles
+  playbooks:
+    prepare: ../shared/prepare.yml
+    converge: ../shared/converge.yml
+    verify: ../shared/verify.yml
+  inventory:
+    group_vars:
+      all:
+        ssh_jailed_users: [max, mellanie]
+        # Teile, die das Lösungsskript prüfen soll
+        workshop_parts: ['start', 'teil2']
+        # overlayfs im Container kann kein "chattr +i"
+        pro07_immutable: false
+verifier:
+  name: ansible
+scenario:
+  test_sequence:
+    - destroy
+    - create
+    - prepare
+    - converge
+    - idempotence
+    - verify
+    - destroy

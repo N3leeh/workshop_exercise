@@ -1,0 +1,16 @@
+---
+# ansible-lint-Konfiguration
+# Start mit Profil "basic"; später schrittweise auf "moderate"/"production"
+# erhöhen und die Ausnahmen unten abbauen.
+profile: basic
+
+exclude_paths:
+  - .git/
+  - .github/
+  - schnitzeljagd/
+
+# Regeln, die (noch) nur warnen statt fehlschlagen
+warn_list:
+  - name[casing]     # Task-Namen beginnen teils klein
+  - yaml[line-length]
+  - risky-file-permissions

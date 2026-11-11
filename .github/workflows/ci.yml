@@ -1,0 +1,106 @@
+---
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+env:
+  PY_COLORS: "1"
+  ANSIBLE_FORCE_COLOR: "1"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Werkzeuge installieren
+        run: pip install ansible-core ansible-lint yamllint
+
+      - name: yamllint
+        run: yamllint -s .
+
+      # pro_05/skript.sh ist absichtlich fehlerhaft (Aufgabe!) und wird nicht geprüft
+      - name: shellcheck
+        run: |
+          shellcheck -S warning \
+            tests/loese-schnitzeljagd.sh \
+            ansible-setup/roles/create-exercises/files/quallenfischersong.sh \
+            schnitzeljagd/pro_08/qualle.sh
+
+      - name: "Prüfen: pro_05/skript.sh ist weiterhin kaputt (Teil der Aufgabe)"
+        run: "! bash -n schnitzeljagd/pro_05/skript.sh"
+
+      # Zunächst nicht blockierend: zeigt Verbesserungen an, ohne die
+      # Pipeline rot zu machen. Später "continue-on-error" entfernen.
+      - name: ansible-lint
+        continue-on-error: true
+        working-directory: ansible-setup
+        run: ansible-lint -c ../.ansible-lint setup-exercises.yaml roles/
+
+  syntax:
+    name: Syntax und Tags
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: ansible-setup
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ansible installieren
+        run: pip install ansible-core
+
+      - name: ansible-playbook --syntax-check
+        run: >-
+          ansible-playbook --syntax-check -i localhost,
+          -e teilnehmerliste=molecule/shared/teilnehmer.yml
+          setup-exercises.yaml
+
+      # Zeigt für jeden Teil, welche Tasks laufen würden
+      - name: Tasks je Teil
+        run: |
+          for teil in start teil1 teil2 pro; do
+            echo "::group::Tasks für --tags $teil"
+            ansible-playbook --list-tasks --tags "$teil" -i localhost, \
+              -e teilnehmerliste=molecule/shared/teilnehmer.yml setup-exercises.yaml
+            echo "::endgroup::"
+          done
+
+  molecule:
+    name: Molecule (${{ matrix.szenario }})
+    needs: [lint, syntax]
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # start/teil1/teil2/pro: jeder Teil einzeln auf einem frischen System
+        # alle: alles zusammen inkl. komplettem Lösungswort
+        szenario: [start, teil1, teil2, pro, alle]
+    defaults:
+      run:
+        working-directory: ansible-setup
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Molecule installieren
+        run: |
+          pip install ansible-core molecule "molecule-plugins[docker]" requests
+          ansible-galaxy collection install community.docker
+
+      - name: molecule test
+        run: molecule test -s ${{ matrix.szenario }}

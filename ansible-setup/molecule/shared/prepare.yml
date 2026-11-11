@@ -1,0 +1,69 @@
+---
+# Bereitet einen frischen debian:trixie-Container so vor, wie er im Workshop
+# aussieht: Host (Ansible legt die Aufgaben an) und Jail-Container
+# (Teilnehmende lösen die Aufgaben) sind hier ein und derselbe Container.
+#
+# Alle Tasks tragen den Tag "always", weil Molecule "--tags=<teil>" für jedes
+# Szenario übergibt (ansible_args in molecule.yml) und ungetaggte Tasks sonst
+# übersprungen würden.
+
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Installiere Python (Voraussetzung für Ansible)
+      tags: ['always']
+      ansible.builtin.raw: >-
+        test -e /usr/bin/python3 ||
+        (apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y python3)
+      changed_when: false
+
+    # Gleiche Pakete wie im Jail-Image (webtty-playground,
+    # roles/docker-jail/files/dockerfile). Bei Änderungen dort hier anpassen!
+    # locales-all ist ausgelassen (groß); das Lösungsskript setzt C.UTF-8.
+    - name: Installiere Pakete wie im Jail-Image
+      tags: ['always']
+      ansible.builtin.apt:
+        name:
+          - procps
+          - iproute2
+          - iputils-ping
+          - nano
+          - vim
+          - sudo
+          - less
+          - lsof
+          - file
+          - man-db
+          - cowsay
+          - fortune
+          - sl
+          - e2fsprogs   # lsattr/chattr für pro_07
+        update_cache: true
+        install_recommends: false
+
+    - name: sudo wie im Jail-Image (%users ohne Passwort)
+      tags: ['always']
+      ansible.builtin.copy:
+        dest: /etc/sudoers.d/workshop
+        content: |
+          %users ALL=(ALL) NOPASSWD:ALL
+          Set disable_coredump false
+        mode: '0440'
+        validate: 'visudo -cf %s'
+
+    # Wie webtty-playground: primäre Gruppe jailed, zusätzlich users
+    - name: Gruppe jailed
+      tags: ['always']
+      ansible.builtin.group:
+        name: jailed
+
+    - name: Teilnehmende anlegen
+      tags: ['always']
+      ansible.builtin.user:
+        name: "{{ item }}"
+        group: jailed
+        groups: users
+        shell: /bin/bash
+        create_home: true
+      loop: "{{ ssh_jailed_users }}"

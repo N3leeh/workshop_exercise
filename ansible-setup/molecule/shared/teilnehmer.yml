@@ -1,0 +1,3 @@
+---
+# Teilnehmerliste für Tests (CI-Syntaxcheck), ersetzt webtty-playground/vars/jailed.yml
+ssh_jailed_users: ["max", "mellanie"]
