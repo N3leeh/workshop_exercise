@@ -111,7 +111,7 @@ jobs:
       - name: Molecule installieren
         run: |
           pip install ansible-core molecule "molecule-plugins[docker]" requests
-          ansible-galaxy collection install community.docker
+          ansible-galaxy collection install community.docker ansible.posix
 
       - name: molecule test
         run: molecule test -s ${{ matrix.szenario }}

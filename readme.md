@@ -147,7 +147,7 @@ Kernel- oder Debian-Update, Aufgaben 9 und 20) noch zum Lösungswort passen.
 Lokal (Docker nötig):
 ```sh
 pip install ansible-core molecule "molecule-plugins[docker]" requests
-ansible-galaxy collection install community.docker
+ansible-galaxy collection install community.docker ansible.posix
 cd ansible-setup && molecule test -s teil2
 ```
 
