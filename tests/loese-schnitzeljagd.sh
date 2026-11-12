@@ -205,7 +205,15 @@ teil_2() {
     # 20: Kernel-Major-Version
     local major
     major=$(uname -r | cut -d. -f1)
-    pruefe 20 "$major" "${LOESUNG:15:1}" "Kernel $(uname -r) (gleicher Buchstabe wie Pos 16)"
+    # Der Kernel kommt vom Host. Auf dem Workshop-Server muss die Major-Version 6
+    # sein (Position 6 = R). Test-Runner (z.B. GitHub Actions) haben oft einen
+    # anderen Kernel: Mit KERNEL_PRUEFEN=0 gibt es dann nur einen Hinweis.
+    if [ "$major" != 6 ] && [ "${KERNEL_PRUEFEN:-1}" = 0 ]; then
+        printf '%-8s Hinweis: Kernel %s auf diesem Rechner, Aufgabe passt nur zu Kernel 6 - nicht geprüft\n' 20 "$(uname -r)"
+        gefunden[6]=${LOESUNG:5:1}
+    else
+        pruefe 20 "$major" "${LOESUNG:15:1}" "Kernel $(uname -r) (gleicher Buchstabe wie Pos 16)"
+    fi
 
     # 21: Variable KAREN von plankton
     b=$(timeout $TO sudo -n -i -u plankton printenv KAREN 2>/dev/null | tr -d '[:space:]')

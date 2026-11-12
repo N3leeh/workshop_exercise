@@ -49,7 +49,8 @@
     - name: Löse die Schnitzeljagd als Teilnehmer max
       tags: ['always']
       ansible.builtin.command:
-        cmd: "runuser -l max -c 'FORCE_COLOR=1 loese-schnitzeljagd.sh {{ workshop_parts | join(' ') }}'"
+        # KERNEL_PRUEFEN=0: Der Runner hat nicht unbedingt Kernel 6 (Aufgabe 20)
+        cmd: "runuser -l max -c 'KERNEL_PRUEFEN=0 FORCE_COLOR=1 loese-schnitzeljagd.sh {{ workshop_parts | join(' ') }}'"
       register: loesung
       changed_when: false
       failed_when: false
