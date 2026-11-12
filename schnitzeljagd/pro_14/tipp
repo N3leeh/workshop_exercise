@@ -1,0 +1,8 @@
+Tipp:
+
+- Jede Datei hat einen Zeitstempel der letzten Änderung (mtime). "ls -l" zeigt ihn an.
+- "find" kann nach diesem Alter suchen, mit der Option "-mtime". Gezählt wird in Tagen:
+    -mtime -7     jünger als 7 Tage
+    -mtime +7     älter als 7 Tage
+- 20 Jahre sind ungefähr 7300 Tage.
+- Zum Vergleich: "ls -lt" sortiert nach dem Zeitstempel, "ls -ltr" umgekehrt.

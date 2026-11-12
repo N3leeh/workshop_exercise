@@ -1,0 +1,22 @@
+#!/bin/bash
+# Spongebobs Weg zur Arbeit. Funktioniert nur, wenn dieser Ordner im PATH steht.
+
+hier=$(cd "$(dirname "$0")" && pwd -P)
+gefunden=false
+IFS=: read -r -a eintraege <<< "$PATH"
+for e in "${eintraege[@]}"; do
+    e=${e/#\~/$HOME}
+    if [ -d "$e" ] && [ "$(cd "$e" && pwd -P)" = "$hier" ]; then gefunden=true; fi
+done
+
+if ! $gefunden; then
+    echo "Spongebob: \"Moment ... du musstest mir den Weg ja doch genau ansagen.\""
+    echo "Spongebob soll von überall einfach nur 'zurarbeit' tippen können."
+    echo "Dafür muss der Ordner $hier im PATH stehen."
+    exit 1
+fi
+
+echo "Spongebob: \"Ich bin bereit! Ich bin bereit! Ich bin bereit!\""
+echo "*rennt los zur Krossen Krabbe*"
+echo
+echo "Buchstabe an Stelle 10: U"

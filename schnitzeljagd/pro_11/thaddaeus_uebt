@@ -1,0 +1,8 @@
+#!/bin/bash
+# Startet Thaddäus' Übungsstunde im Hintergrund.
+cd "$(dirname "$0")" || exit 1
+rm -f ruhe
+./klarinette &
+disown
+echo "Thaddäus hat seine Klarinette ausgepackt und übt jetzt im Hintergrund."
+echo "Dein Terminal kannst du weiter benutzen ... wenn du den Lärm aushältst."

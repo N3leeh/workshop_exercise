@@ -1,16 +1,22 @@
-Du findest hier drin eine Datei namens "text".
-Es handelt sich um einen sehr langen Text mit einem Hinweis für den 19. Lösungsbuchstaben.
-Der -Hinweis- in der Textdatei sieht wie folgt aus:
+Willkommen in Bikini Bottom!
 
-Erster Buchstabe = *
+Plankton hat das Lösungswort gestohlen und die Buchstaben überall in Bikini Bottom versteckt.
+Jede Aufgabe ist eine Station. An jeder Station findest du einen Buchstaben.
 
-(für * wird dann der erste Buchstabe stehen). Überlege dir gut wie du diese Stelle finden kannst. 
-Vielleicht ist es nicht sehr sinnvoll die ganze Datei im Terminal auszugeben?
+Erste Station: die Krosse Krabbe.
+Mr. Krabs führt seit Jahren ein Logbuch, die Datei "logbuch". Es ist sehr, sehr lang.
+Irgendwo darin hat er sich den 19. Buchstaben des Lösungsworts notiert. Die Notiz sieht so aus:
 
-Sobald du den Buchstaben gefunden hast, gehe wieder einen Ordner zurück (cd ..). 
-Dort kannst du deine Lösungs-Ergebnisse in der Datei "solution" sammeln.
+Geheimzutat Nr. 1 = *
+
+(für * steht dann der Buchstabe). Überlege dir gut, wie du diese Stelle finden kannst.
+Ist es sinnvoll, das ganze Logbuch im Terminal auszugeben?
+Und Vorsicht: Mr. Krabs schreibt das Wort "Geheimzutat" ziemlich oft.
+
+Sobald du den Buchstaben gefunden hast, gehe wieder einen Ordner zurück (cd ..).
+Dort kannst du deine Ergebnisse in der Datei "00_solution" sammeln.
 
 Danach kannst du in den Ordner 02 gehen, um den nächsten Buchstaben herauszufinden.
 
-In jedem Aufgabenordner findest du außerdem ein oder mehrere Dateien mit tipps, die dir weiterhelfen,
+In jedem Aufgabenordner findest du außerdem eine oder mehrere Dateien mit Tipps,
 falls du mal nicht weiterkommst.

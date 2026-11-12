@@ -1,0 +1,22 @@
+#!/bin/bash
+# Thaddäus' Klarinette: übt in einer Endlosschleife, bis sie SIGTERM bekommt.
+cd "$(dirname "$0")" || exit 1
+
+einpacken() {
+    echo
+    echo "Thaddäus: \"Na gut, ich packe ja schon ein. Banausen!\""
+    printf 'Endlich Ruhe in Bikini Bottom!\nBuchstabe an Stelle 11: I\n' > ruhe
+    kill "$pause" 2>/dev/null
+    exit 0
+}
+trap einpacken TERM
+trap '' INT HUP
+
+toene=("Töröööö" "Düdel-düdel-düüü" "Quiiiietsch" "Pfffft-tröt" "Tüüüüt-tüüüt")
+while true; do
+    echo
+    echo "    ♪ ${toene[RANDOM % ${#toene[@]}]} ♪   (Thaddäus übt noch)"
+    sleep 8 &
+    pause=$!
+    wait "$pause"
+done

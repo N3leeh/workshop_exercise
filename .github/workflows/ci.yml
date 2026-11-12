@@ -33,7 +33,18 @@ jobs:
           shellcheck -S warning \
             tests/loese-schnitzeljagd.sh \
             ansible-setup/roles/create-exercises/files/quallenfischersong.sh \
-            schnitzeljagd/pro_08/qualle.sh
+            schnitzeljagd/pro_08/qualle.sh \
+            schnitzeljagd/pro_11/thaddaeus_uebt \
+            schnitzeljagd/pro_11/klarinette \
+            schnitzeljagd/pro_15/mrs_puffs_boot \
+            schnitzeljagd/pro_16/wegweiser/zurarbeit \
+            schnitzeljagd/pro_18/bestellfenster_oeffnen
+
+      - name: "Prüfen: pro_15/mrs_puffs_boot ist im Repo NICHT ausführbar (Teil der Aufgabe)"
+        run: "[ \"$(git ls-files -s schnitzeljagd/pro_15/mrs_puffs_boot | cut -c1-6)\" = 100644 ]"
+
+      - name: python3 -m py_compile
+        run: python3 -m py_compile schnitzeljagd/pro_18/bestellfenster.py
 
       - name: "Prüfen: pro_05/skript.sh ist weiterhin kaputt (Teil der Aufgabe)"
         run: "! bash -n schnitzeljagd/pro_05/skript.sh"

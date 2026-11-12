@@ -1,11 +1,12 @@
-Einbruchsversuch!
+Einbruch ins Kassensystem!
 
-In der Datei "auth.log" stehen die SSH-Anmeldungen eines Servers.
-Jemand versucht offenbar, Passwörter zu erraten.
+Das Kassensystem der Krossen Krabbe protokolliert alle Anmeldungen in der Datei "auth.log".
+Berechtigt sind nur krabs, spongebob und thaddaeus. Aber irgendjemand versucht, Passwörter zu erraten ...
 
 1. Wie viele fehlgeschlagene Anmeldungen ("Failed password") gibt es insgesamt?
 2. Von welcher IP-Adresse kamen die meisten fehlgeschlagenen Versuche?
 3. Welchen Benutzernamen hat diese IP am häufigsten ausprobiert?
-4. Gab es danach von dieser IP eine erfolgreiche Anmeldung ("Accepted")?
+4. Gab es danach von dieser IP eine erfolgreiche Anmeldung ("Accepted")? Als wer?
+5. Schau im "adressbuch" nach: Wem gehört die IP? Wer steckt also dahinter?
 
-Versuche alle Antworten mit einer Pipeline zu ermitteln, ohne zu zählen.
+Versuche die Antworten mit einer Pipeline zu ermitteln, ohne selbst zu zählen.

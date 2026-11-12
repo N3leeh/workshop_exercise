@@ -1,13 +1,16 @@
-In diesem Ordner findest du wieder einen Unterordner. Der Unterordner hat weitere Unterordner.
-In einem der Unterordnern ist eine Datei "buchstabe" abgelegt. Allerdings weißt du nicht in welchem Unterordner.
+Plankton hat eine Zutat aus der Krossen Krabbe gestohlen und in seinem Labor im Abfalleimer versteckt!
 
-Außerdem hast du keinen Zugriff auf die Ordner.
+In diesem Ordner findest du das Labor, den Ordner "labor". Das Labor hat viele Räume (Unterordner)
+und in einem davon liegt die Datei "geheimzutat". Allerdings weißt du nicht, in welchem.
 
-Dieses Mal möchtest du aber Besitzer werden von diesem Ordner und allen Unterordnern.
-Als erstes sollst du dich als Besitzer der Ordner und Unterordner eintragen.
+Außerdem hast du keinen Zugriff auf das Labor, es gehört natürlich Plankton (bzw. root).
 
-Danach kannst du die Datei buchstabe suchen. Verwende dafür einen Befehl, damit du nicht selbst alles durchsuchen musst.
+Dieses Mal übernimmst du das Labor: Trage dich als Besitzer des Ordners "labor" und aller Unterordner ein.
 
-Falls du nicht weiter kommst schaue in die Tipps.
+Danach kannst du die Datei "geheimzutat" suchen. Verwende dafür einen Befehl,
+damit du nicht selbst jeden Raum durchsuchen musst.
 
-Dieser Buchstabe ist der fünfte Buchstabe des Lösungswortes. Update deine Lösungsdatei und fahre mit der nächsten Aufgabe fort.
+Falls du nicht weiterkommst, schaue in die Tipps.
+
+Die gestohlene Zutat ist der fünfte Buchstabe des Lösungswortes.
+Update deine Lösungsdatei und fahre mit der nächsten Aufgabe fort.

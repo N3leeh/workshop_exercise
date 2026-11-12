@@ -1,0 +1,6 @@
+Tipp:
+
+- Lies die Fehlermeldung genau. Was fehlt dem Boot?
+- "ls -l mrs_puffs_boot" zeigt die Rechte. Damit du eine Datei als Programm starten kannst,
+  braucht sie das Recht "x" (execute, ausführen).
+- Rechte änderst du mit "chmod". Schau in die Manpage, wie du ein Recht hinzufügst ("+").

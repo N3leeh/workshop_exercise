@@ -1,0 +1,7 @@
+#!/bin/bash
+# Öffnet das Bestellfenster der Krossen Krabbe im Hintergrund.
+cd "$(dirname "$0")" || exit 1
+setsid python3 bestellfenster.py < /dev/null > /dev/null 2>&1 &
+sleep 1
+echo "Mr. Krabs: \"Das Bestellfenster ist geöffnet! Die Kunden sollen kommen ... und zahlen!\""
+echo "Nur auf welchem Port? Das hat Mr. Krabs vergessen, dir zu sagen."

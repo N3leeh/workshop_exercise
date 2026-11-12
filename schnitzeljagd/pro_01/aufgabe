@@ -1,2 +1,7 @@
-Was ist besonders an /usr/bin/passwd ?
-Warum ist das so?
+Mr. Krabs' Tresorschlüssel
+
+Spongebob will sein Passwort ändern. Passwörter stehen in /etc/shadow, und diese Datei
+darf nur der Chef (root) beschreiben. Trotzdem klappt "passwd" für jeden normalen User.
+
+Mr. Krabs hat dem Programm /usr/bin/passwd offenbar einen Schlüssel für seinen Tresor gegeben.
+Was ist besonders an /usr/bin/passwd? Warum ist das so?

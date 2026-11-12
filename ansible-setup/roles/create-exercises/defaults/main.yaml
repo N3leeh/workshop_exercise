@@ -20,7 +20,35 @@ motd_file: schnitzeljagd.motd
 # Aufgaben je Teil
 teil1: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11']
 teil2: ['12', '13', '14', '15', '16', '17', '18', '19', '20', '21']
-pro: ['pro_01', 'pro_02', 'pro_03', 'pro_04', 'pro_05', 'pro_06', 'pro_07', 'pro_08', 'pro_09', 'pro_10']
+pro: ['pro_01', 'pro_02', 'pro_03', 'pro_04', 'pro_05', 'pro_06', 'pro_07', 'pro_08', 'pro_09', 'pro_10',
+      'pro_11', 'pro_12', 'pro_13', 'pro_14', 'pro_15', 'pro_16', 'pro_17', 'pro_18']
+
+# Lösungsdatei für das eigene Lösungswort der Zusatzaufgaben pro_11 bis pro_18
+pro_solution_file: '00_solution_zusatz'
+
+# pro_14: Alle Krabbenburger außer dem frischen (Nr. 08, behält die Zeit des
+# Ausbringens) bekommen ein festes, altes Änderungsdatum. Nr. 03 ist "aus dem
+# letzten Jahrtausend" (find -mtime +7300). Format: JJJJMMTThhmm.ss
+pro14_alte_burger:
+  krabbenburger_01: '202403150900.00'
+  krabbenburger_02: '202407021230.00'
+  krabbenburger_03: '199907141200.00'
+  krabbenburger_04: '202311231745.00'
+  krabbenburger_05: '202502101015.00'
+  krabbenburger_06: '202409051300.00'
+  krabbenburger_07: '202312241800.00'
+  krabbenburger_09: '202505011100.00'
+  krabbenburger_10: '202401310830.00'
+  krabbenburger_11: '202410121600.00'
+  krabbenburger_12: '202506201945.00'
+
+# Ausführbare Skripte der Zusatzaufgaben (pro_15/mrs_puffs_boot absichtlich NICHT)
+pro_executables:
+  - pro_08/qualle.sh
+  - pro_11/thaddaeus_uebt
+  - pro_11/klarinette
+  - pro_16/wegweiser/zurarbeit
+  - pro_18/bestellfenster_oeffnen
 sidequests: ['sidequest01', 'sidequest02']
 
 # pro_07 setzt "chattr +i". Das braucht ein Dateisystem mit Attribut-Support

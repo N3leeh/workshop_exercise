@@ -1,4 +1,10 @@
+Thaddäus' Beschwerden
+
+Thaddäus beschwert sich ständig. Mr. Krabs will die Beschwerden nicht mehr hören,
+sondern sie gesammelt in einem Briefkasten haben.
+
+Bei Befehlen sind die Beschwerden die Fehlermeldungen.
 Wie kann man Fehlermeldungen von Befehlen in eine Datei umleiten?
 
 Teste es mit: ls /gibtesnicht /etc/hostname
-Die Fehlermeldung soll in der Datei "fehler" landen, die normale Ausgabe weiterhin im Terminal erscheinen.
+Die Fehlermeldung soll in der Datei "beschwerden" landen, die normale Ausgabe weiterhin im Terminal erscheinen.

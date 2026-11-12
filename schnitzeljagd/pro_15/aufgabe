@@ -1,0 +1,9 @@
+Mrs. Puffs Boot springt nicht an
+
+In Mrs. Puffs Bootsfahrschule soll Spongebob heute endlich losfahren.
+Das Boot ist das Skript "mrs_puffs_boot". Aber egal wie oft Spongebob den Zündschlüssel dreht:
+
+    ./mrs_puffs_boot
+
+Nichts passiert, nur eine Fehlermeldung. Mache das Boot startklar und fahre los!
+Das Boot verrät dir dann den 2. Buchstaben im Lösungswort der Zusatzaufgaben.

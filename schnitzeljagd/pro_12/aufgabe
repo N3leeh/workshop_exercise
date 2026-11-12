@@ -1,0 +1,11 @@
+Planktons gefälschtes Rezept
+
+Plankton hat eine Kopie des Krabbenburger-Rezepts erbeutet und daran herumgepfuscht.
+Hier liegen das Original ("rezept_original") und Planktons Kopie ("rezept_plankton").
+Auf den ersten Blick sehen beide gleich aus.
+
+Finde heraus, was Plankton geändert hat, ohne die Dateien Zeile für Zeile selbst zu vergleichen.
+
+- Plankton hat eine Zutat AUSGETAUSCHT. Der Anfangsbuchstabe seiner neuen Zutat (nicht der Menge!)
+  ist der 9. Buchstabe im Lösungswort der Zusatzaufgaben.
+- Plankton hat eine Zutat HINZUGEFÜGT. Deren Anfangsbuchstabe ist der 4. Buchstabe.

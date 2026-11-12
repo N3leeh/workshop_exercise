@@ -1,0 +1,8 @@
+Tipp:
+
+- Woher weiß die Shell eigentlich, wo "ls" liegt? Sie sucht in allen Ordnern,
+  die in der Variable PATH stehen: "echo $PATH" (die Ordner sind durch ":" getrennt).
+- Mit "type ls" oder "which ls" siehst du, wo ein Befehl gefunden wurde.
+- Du kannst PATH erweitern, zum Beispiel:   export PATH="$PATH:/ein/neuer/ordner"
+  Den vollständigen Pfad des aktuellen Ordners zeigt dir "pwd".
+- Die Änderung gilt nur in diesem Fenster. Dauerhaft wäre sie, wenn sie in ~/.bashrc stünde.

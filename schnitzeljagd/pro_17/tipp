@@ -1,0 +1,8 @@
+Tipp:
+
+- "sort" sortiert Zeilen, "head" zeigt die ersten, "tail" die letzten Zeilen ("tail -1" nur die letzte).
+- Mit "-t" sagst du sort, welches Zeichen die Spalten trennt, mit "-k" nach welcher Spalte
+  sortiert werden soll. Beispiel: sort -t';' -k2 sortiert nach der 2. Spalte.
+- Achtung bei Zahlen: Normal sortiert sort wie im Wörterbuch, also Zeichen für Zeichen.
+  Dann ist "99" größer als "1250", weil "9" nach "1" kommt. Mit "-n" sortiert sort nach Zahlenwert.
+- Ein Datum im Format JJJJ-MM-TT kann man ganz normal sortieren. Warum funktioniert das?

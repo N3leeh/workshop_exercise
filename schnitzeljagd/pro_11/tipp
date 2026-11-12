@@ -1,0 +1,9 @@
+Tipp:
+
+- Laufende Prozesse zeigt "ps". Mit "ps aux" siehst du alle, mit "ps aux | grep klarinette" nur die passenden.
+- Noch einfacher: "pgrep -a klarinette" zeigt PID und Befehl.
+- "kill PID" schickt das Signal SIGTERM. Das ist die höfliche Bitte, sich zu beenden:
+  Ein Programm darf darauf reagieren und vorher noch aufräumen.
+- "kill -9 PID" (SIGKILL) beendet sofort, ohne dass das Programm noch etwas tun kann.
+  Dann hat Thaddäus aber keine Zeit mehr, dir die Datei "ruhe" zu hinterlassen.
+- Statt der PID kannst du auch den Namen verwenden: "pkill klarinette".

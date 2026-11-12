@@ -1,10 +1,12 @@
-In diesem Ordner findest du einen weiteren Ordner mit dem Namen "unterordner".
+Zeit für eine Rundreise durch Bikini Bottom!
 
-Gehe mit cd in diesen Unterordner. Dort findest du viele verschiedene Dateien und Ordner.
+In diesem Ordner findest du einen weiteren Ordner mit dem Namen "bikini_bottom".
+Gehe mit cd in diesen Ordner. Dort findest du viele Orte und Bewohner von Bikini Bottom
+(manche sind Dateien, manche Ordner).
 Mit dem Befehl "ls" kannst du dir eine Liste der Dateien und Ordner ausgeben lassen.
 
 Deine erste Aufgabe ist es, die Ausgabe von ls in eine Datei namens "text" zu schreiben.
-Danach sollst du die Datei "text" ausgeben, dabei sollen die Zeilennummern nummeriert sein.
+Danach sollst du die Datei "text" ausgeben, dabei sollen die Zeilen nummeriert sein.
 
 Der letzte Buchstabe des 34. Eintrags ist der vierte Buchstabe des Lösungswortes.
 

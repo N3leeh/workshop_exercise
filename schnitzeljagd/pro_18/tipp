@@ -1,0 +1,10 @@
+Tipp:
+
+- Ein Programm, das auf Verbindungen wartet, "lauscht" (listen) auf einem Port.
+- "ss" zeigt Netzwerkverbindungen und lauschende Ports an. Nützliche Optionen:
+    -t  nur TCP        -l  nur lauschende (listening)
+    -n  Ports als Zahl -p  zeige das Programm dazu
+  also zum Beispiel:  ss -tlnp
+- In der Spalte "Local Address:Port" steht hinter dem letzten ":" der Port.
+- "curl URL" holt eine Webseite und zeigt sie als Text im Terminal an.
+  Die Adresse für eine Bestellung findest du auf der Speisekarte.

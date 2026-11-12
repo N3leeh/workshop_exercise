@@ -1,6 +1,6 @@
 Tipp:
 
-Vergleiche die Rechte des Ordners und der Datei mit "ls -ld unterordner" und "ls -l unterordner".
+Vergleiche die Rechte des Steins (Ordner) und des Zettels (Datei) mit "ls -ld stein" und "ls -l stein".
 
 Löschen bedeutet: Der Eintrag wird aus dem Ordner entfernt.
 Welche Rechte brauchst du also - auf die Datei oder auf den Ordner?

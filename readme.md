@@ -3,6 +3,8 @@ Enthalten sind einige kleine Übungsaufgaben für Shell-Einsteiger.
 Jede Aufgabe ergibt einen Lösungsbuchstaben; alle Buchstaben zusammen ergeben ein Wort.
 Ansible-Playbook + Rolle zum erstellen der Dateien + Verzeichnisse für die Teilnehmer
 
+Alle Aufgaben spielen in Bikini Bottom: Plankton hat das Lösungswort gestohlen, jede Aufgabe ist eine Station.
+
 # Themen Studenten-Workshop
 
 ## Tag 1
@@ -87,6 +89,16 @@ Ansible-Playbook + Rolle zum erstellen der Dateien + Verzeichnisse für die Teil
 9. Matrjoschka: Dateityp erkennen und auspacken (file/od, tar, base64)
 10. Log-Analyse: Einbruchsversuch in auth.log finden (grep, awk, sort, uniq)
 
+## Zusatzaufgaben mit eigenem Lösungswort (Lösungsdatei `00_solution_zusatz`)
+11. Prozesse: Thaddäus' Klarinette finden und höflich beenden (ps, pgrep, kill)
+12. Dateien vergleichen: Planktons gefälschtes Rezept (diff)
+13. Platzverbrauch: Was füllt Patricks Stein? (du, sort, find -size)
+14. Zeitstempel: Welcher Krabbenburger ist frisch, welcher uralt? (find -mtime)
+15. Ausführrecht: Mrs. Puffs Boot springt nicht an (chmod +x)
+16. PATH: Spongebob findet den Weg zur Arbeit nicht (PATH, export)
+17. Sortieren: Mr. Krabs' Kassenbuch (sort -t -k -n, head, tail)
+18. Netzwerk: Das Bestellfenster der Krossen Krabbe (ss, curl)
+
 
 # Ausbringen (Ansible)
 
@@ -99,7 +111,7 @@ Reihenfolge ausgebracht werden; ein erneuter Lauf ändert nichts und überschrei
 | `ansible-playbook setup-exercises.yaml --tags=start` | Zu Beginn des Workshops: Ordner `~/schnitzeljagd` mit Lösungsdatei `00_solution`, `00_readme.md` und `00_tipps` |
 | `ansible-playbook setup-exercises.yaml --tags=teil1` | Aufgaben 01-11 (Tag 1) inkl. Alias und Skript für Aufgabe 8 |
 | `ansible-playbook setup-exercises.yaml --tags=teil2` | Aufgaben 12-21 (Tag 2) inkl. User `plankton` |
-| `ansible-playbook setup-exercises.yaml --tags=pro` | Zusatzaufgaben und Sidequests |
+| `ansible-playbook setup-exercises.yaml --tags=pro` | Zusatzaufgaben (pro_01-18) mit `00_solution_zusatz` und Sidequests |
 
 Die Start-Dateien werden bei jedem Teil mit angelegt, falls sie noch fehlen.
 
@@ -138,6 +150,8 @@ pip install ansible-core molecule "molecule-plugins[docker]" requests
 ansible-galaxy collection install community.docker
 cd ansible-setup && molecule test -s teil2
 ```
+
+Für pro_18 braucht das Jail-Image `curl` (webtty-playground, `roles/docker-jail/files/dockerfile`).
 
 Einschränkungen: Im Container wird `chattr +i` (pro_07) übersprungen, weil overlayfs keine
 Datei-Attribute kann. Host und Jail-Container sind im Test derselbe Container.

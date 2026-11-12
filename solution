@@ -34,23 +34,23 @@ Nocturnal Monster Puppy
 
 # Lösung der einzelnen Aufgaben 
 (verschiedene Lösungswege möglich)
-1. grep -i "buchstabe" text
+1. grep "Geheimzutat Nr. 1" logbuch
 2. mv spongebob/krabbenburger patrick/
 3. man rm
-4. ls unterordner | cat -n
+4. cd bikini_bottom; ls > text; cat -n text   (34. Eintrag: strandgut)
 5. id 0
 6. ls -al; cat .krabbenburgergeheimrezept
 7. man man
 8. alias
 9. cat /etc/os-release
 10. ls -al /usr/bin/[!a-zA-Z0-9]
-11. cat willk0mmen\ \$i\?\\abfalleimer
+11. cat 'Pattys Sonderangebot (nur heute!) $5?'   oder   cat Pattys\ Sonderangebot\ \(nur\ heute\!\)\ \$5\?
 12. ls -li
 13. getent group
 14. sudo cat krabbenburgergeheimrezept
-15. chown -R username:gruppe unterordner; find . -name "buchstabe" -type f
-16. grep -c Wahnsinn text
-17. find . -nouser -nogroup
+15. sudo chown -R username:gruppe labor; find labor -name geheimzutat
+16. grep -c Wahnsinn tagebuch   (14, jedes Vorkommen in einer eigenen Zeile)
+17. find fundbuero -nouser -nogroup   (regal_4/kiste_9/fach_10/einzelne_socke)
 18. cat text | tr ',' '\n' | sort | uniq -c | sort -n
 19. rev text | tac | tail -n 1
 20. uname -r 
@@ -62,20 +62,56 @@ pro_01. ls -l /usr/bin/passwd -> "s" statt "x" beim Besitzer (SUID-Bit). Das Pro
 pro_02. SUID (Set User ID). find / -perm -4000 -type f 2>/dev/null | wc -l   (Anzahl hängt vom Image ab)
 pro_03. ls /gibtesnicht; echo $?  -> 2 ("serious trouble", z.B. Datei nicht gefunden; 1 = "minor problems")
         true -> 0, false -> 1
-pro_04. ls /gibtesnicht /etc/hostname 2> fehler
+pro_04. ls /gibtesnicht /etc/hostname 2> beschwerden
 pro_05. 1) chmod +x skript.sh  2) name=$(whoami) (keine Leerzeichen um "=")  3) if [ ... ]; then
-pro_06. ls -ld unterordner -> dr-xr-xr-x: Zum Löschen braucht man Schreibrecht auf den ORDNER,
-        nicht auf die Datei. chmod u+w unterordner && rm unterordner/some_file
-pro_07. lsattr datei -> Attribut "i" (immutable). Kann nur mit chattr -i entfernt werden; dafür
+pro_06. ls -ld stein -> dr-xr-xr-x: Zum Löschen braucht man Schreibrecht auf den ORDNER (Stein),
+        nicht auf die Datei. chmod u+w stein && rm stein/zettel
+pro_07. lsattr erster_dollar -> Attribut "i" (immutable). Kann nur mit chattr -i entfernt werden; dafür
         braucht man CAP_LINUX_IMMUTABLE, das im Container fehlt -> auch sudo hilft nicht.
 sidequest01. /usr/games/fortune | /usr/games/cowsay
 pro_08. ./qualle.sh &   ->  jobs -l / pgrep -a qualle / ps aux | grep qualle
         kill PID -> wird ignoriert (SIGTERM abgefangen); kill -USR1 PID -> Erfolgsmeldung
         Bonus: kill -9 PID (SIGKILL kann nicht abgefangen werden, der Kernel beendet den Prozess direkt)
-pro_09. file schatz (oder od -c schatz | head -1 -> gzip) ; tar xzf schatz ; base64 -d innen/nachricht
-pro_10. 1) grep -c "Failed password" auth.log                                   -> 96
+pro_09. file flaschenpost (oder od -c flaschenpost | head -1 -> gzip) ; tar xzf flaschenpost ; base64 -d kiste/brief
+pro_10. 1) grep -c "Failed password" auth.log                                   -> 93
         2) grep "Failed password" auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -n | tail -1
-                                                                                   -> 203.0.113.42 (57x)
+                                                                                   -> 203.0.113.42 (58x)
         3) grep "Failed password" auth.log | grep 203.0.113.42 | awk '{print $(NF-5)}' | sort | uniq -c | sort -n | tail -1
-                                                                                   -> root (18x)
-        4) grep Accepted auth.log | grep 203.0.113.42  -> ja, als "admin" (Passwort erraten!)
+                                                                                   -> krabs (24x)
+        4) grep Accepted auth.log | grep 203.0.113.42  -> ja, als "thaddaeus" (Passwort erraten!)
+        5) grep 203.0.113.42 adressbuch                 -> Abfalleimer (Plankton)
+
+# Lösung der Zusatzaufgaben mit eigenem Lösungswort (pro_11 bis pro_18)
+Codename für Linux Kernel 5.2
+Bobtail Squid   (passt zu Thaddäus, auf Englisch "Squidward")
+
+| Zahl | Lösung | Aufgabe |
+|------|--------|---------|
+| 1    | B      | pro_17 (neueste Bestellung: Bärbel Barsch) |
+| 2    | O      | pro_15 |
+| 3    | B      | pro_18 (Krabbenburger bestellt) |
+| 4    | T      | pro_12 (hinzugefügt: Tentakelschleim) |
+| 5    | A      | pro_14 (frischer Burger, Nr. 08) |
+| 6    | I      | pro_18 (Speisekarte) |
+| 7    | L      | pro_17 (höchster Betrag: Larry der Hummer) |
+| 8    | S      | pro_13 (sandburg) |
+| 9    | Q      | pro_12 (ausgetauscht: Quallengelee) |
+| 10   | U      | pro_16 |
+| 11   | I      | pro_11 |
+| 12   | D      | pro_14 (uralter Burger, Nr. 03) |
+
+pro_11. ./thaddaeus_uebt ; pgrep -a klarinette (oder ps aux | grep klarinette) ; kill PID ; cat ruhe
+        Mit kill -9 gibt es keine Datei "ruhe" (SIGKILL kann nicht abgefangen werden).
+pro_12. diff rezept_original rezept_plankton   (8c8: Seetang -> Quallengelee ; 13a14: Tentakelschleim)
+pro_13. du -a stein | sort -n | tail   oder   find stein -type f -size +200k   -> keller/kiste/sandburg
+        Vollstes Zimmer: keller (460K); sockensammlung hat viele kleine Dateien (404K)
+pro_14. find grill -mtime -30 -> krabbenburger_08 (A) ; find grill -mtime +7300 -> krabbenburger_03 (D, 1999)
+        (Die Zeitstempel setzt Ansible; Nr. 08 bekommt die Zeit des Ausbringens)
+pro_15. ./mrs_puffs_boot -> Permission denied ; chmod +x mrs_puffs_boot ; ./mrs_puffs_boot
+pro_16. export PATH="$PATH:$HOME/schnitzeljagd/pro_16/wegweiser" ; cd ~ ; zurarbeit
+pro_17. sort -t';' -k3 -n kassenbuch | tail -1 -> Larry der Hummer (1250)
+        Falle: ohne -n ist "99" (Patrick) am größten. tail -1 ohne sort zeigt Sandy statt der neuesten Bestellung.
+        sort kassenbuch | tail -1 -> 2026-09-30;Bärbel Barsch
+pro_18. ./bestellfenster_oeffnen ; ss -tlnp (Prozess "krosse-krabbe", Port zufällig)
+        curl http://localhost:PORT/speisekarte ; curl http://localhost:PORT/bestellen/krabbenburger
+        Braucht curl im Jail-Image (webtty-playground, roles/docker-jail/files/dockerfile).

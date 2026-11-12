@@ -1,7 +1,10 @@
-Matrjoschka
+Flaschenpost
 
-In diesem Ordner liegt die Datei "schatz". Sie hat keine Dateiendung.
+Am Strand von Bikini Bottom ist eine Flaschenpost angespült worden: die Datei "flaschenpost".
+Sie hat keine Dateiendung. In der Flasche steckt eine Kiste, und in der Kiste ein Brief.
+Der Brief ist verschlüsselt (naja, fast).
+
 Finde heraus, was für eine Datei das ist, und packe sie so lange aus,
-bis du die Nachricht im Inneren lesen kannst.
+bis du den Brief lesen kannst.
 
 Unter Linux bestimmt nicht die Endung den Dateityp, sondern der Inhalt.

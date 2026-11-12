@@ -2,7 +2,7 @@ Tipp:
 
 - Der Befehl "file" verrät dir, was in einer Datei steckt.
 - Ohne "file": Viele Formate erkennt man an den ersten Bytes ("Magic Number").
-  Schau sie dir mit "od -c schatz | head -2" an. gzip beginnt mit \037 \213.
+  Schau sie dir mit "od -c flaschenpost | head -2" an. gzip beginnt mit \037 \213.
 - Mit "tar" kannst du Archive auspacken. Schau in "tar --help" nach den
   Optionen für "extract", "gzip" und "file".
 - Eine Zeichenkette aus Buchstaben, Ziffern, + und / und einem "=" am Ende

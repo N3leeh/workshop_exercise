@@ -1,0 +1,6 @@
+Tipp:
+
+- Der Befehl "diff" vergleicht zwei Dateien Zeile für Zeile und zeigt nur die Unterschiede.
+- In der Ausgabe stehen Zeilen mit "<" in der ersten Datei, Zeilen mit ">" in der zweiten.
+  "c" heißt changed (geändert), "a" heißt added (hinzugefügt), "d" heißt deleted (gelöscht).
+- Übersichtlicher wird es mit "diff -u" oder nebeneinander mit "diff -y".

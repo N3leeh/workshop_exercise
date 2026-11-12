@@ -1,6 +1,11 @@
-Welchen Exitcode hat folgender Befehl?
+Mrs. Puffs Fahrprüfung
+
+Jeder Befehl legt nach seiner Fahrt eine Prüfung bei Mrs. Puff ab und bekommt eine Note: den Exitcode.
+Bei Mrs. Puff ist es wie im echten Leben auf Linux: 0 heißt bestanden, alles andere heißt durchgefallen.
+
+Welche Note (welchen Exitcode) bekommt folgender Befehl?
 
 ls /gibtesnicht
 
-Und welchen Exitcode haben "true" und "false"?
-Warum ist der Exitcode von ls nicht einfach 1?
+Und welche Noten bekommen "true" und "false"?
+Warum bekommt ls nicht einfach eine 1? (Spongebob würde jetzt sagen: Es gibt verschiedene Arten, durchzufallen.)

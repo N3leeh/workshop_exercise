@@ -1,0 +1,12 @@
+Das Bestellfenster der Krossen Krabbe
+
+Die Krosse Krabbe hat jetzt ein Bestellfenster im Netzwerk: einen kleinen Webserver.
+
+1. Öffne das Bestellfenster mit:   ./bestellfenster_oeffnen
+2. Leider hat Mr. Krabs vergessen, dir zu sagen, auf welchem Port es lauscht.
+   Finde den Port heraus. (Der Port ist jedes Mal ein anderer.)
+3. Schau dir mit "curl" die Begrüßung an:   curl http://localhost:PORT/
+   Lies die Speisekarte. Dort gibt es den 6. Buchstaben im Lösungswort der Zusatzaufgaben.
+4. Bestelle einen Krabbenburger. Auf der Serviette steht der 3. Buchstabe.
+
+Hinweis: Das Bestellfenster läuft nur in deinem aktuellen Fenster (Container).

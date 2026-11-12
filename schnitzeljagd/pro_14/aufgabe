@@ -1,0 +1,11 @@
+Frisch vom Grill?
+
+Auf Spongebobs Grill (Ordner "grill") liegen zwölf Krabbenburger. Fast alle liegen da schon ewig,
+mindestens seit letztem Jahr. Mr. Krabs verkauft sie trotzdem. Natürlich.
+
+1. Nur ein einziger Burger wurde in den letzten 30 Tagen gebraten.
+   Sein Buchstabe ist der 5. Buchstabe im Lösungswort der Zusatzaufgaben.
+2. Ein Burger stammt sogar noch aus dem letzten Jahrtausend (älter als 20 Jahre)!
+   Sein Buchstabe ist der 12. Buchstabe.
+
+Verwende den Befehl "find", um die Burger nach ihrem Alter zu finden.

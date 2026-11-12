@@ -3,4 +3,4 @@
 *.yaml text eol=lf
 *.yml text eol=lf
 # Binärdateien nicht als Text behandeln (sonst Zeilenende-Konvertierung)
-schnitzeljagd/pro_09/schatz binary
+schnitzeljagd/pro_09/flaschenpost binary

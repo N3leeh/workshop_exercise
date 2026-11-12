@@ -1,0 +1,9 @@
+Tipp:
+
+- "du" (disk usage) zeigt, wie viel Platz Ordner belegen. "du -h" macht die Zahlen lesbar (K, M, G).
+- "du -a" zeigt auch einzelne Dateien, nicht nur Ordner.
+- Mit "sort -n" (oder bei "du -h" mit "sort -h") kannst du die Ausgabe nach Größe sortieren.
+  "tail" zeigt dann die größten Einträge.
+- Achtung: Ein Ordner ist immer mindestens so groß wie alles, was darin liegt.
+  Gesucht ist aber eine einzelne Datei.
+- Alternative: "find stein -type f -size +100k" findet alle Dateien über 100 KB.

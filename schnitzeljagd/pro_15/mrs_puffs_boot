@@ -1,0 +1,14 @@
+#!/bin/bash
+# Mrs. Puffs Fahrschulboot
+
+if [ ! -x "$0" ]; then
+    echo "Mrs. Puff: \"Halt! Das Boot ist gar nicht startklar!\""
+    echo "(Starte das Boot direkt mit ./mrs_puffs_boot, sobald es startklar ist.)"
+    exit 1
+fi
+
+echo "Brumm ... brumm ... BRUMMMM!"
+echo "Mrs. Puff: \"Es fährt! Spongebob, du hast ... nein, warte, wo fährst du hin?!\""
+echo "*Mrs. Puff bläst sich vor Schreck zu einem Kugelfisch auf*"
+echo
+echo "Buchstabe an Stelle 2: O"

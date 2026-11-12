@@ -1,0 +1,14 @@
+Thaddäus übt Klarinette
+
+Thaddäus übt schon wieder. Und zwar in einer Endlosschleife.
+
+1. Starte die Übungsstunde mit:   ./thaddaeus_uebt
+   Thaddäus verschwindet sofort im Hintergrund, aber du wirst ihn hören ...
+2. Finde den Prozess "klarinette" und seine Prozess-ID (PID).
+3. Beende den Prozess. Bitte freundlich: Thaddäus soll noch Zeit haben, seine Klarinette einzupacken.
+
+Wenn Thaddäus seine Klarinette ordentlich eingepackt hat, hinterlässt er eine Datei "ruhe".
+Darin steht der 11. Buchstabe des Lösungsworts der Zusatzaufgaben (00_solution_zusatz).
+
+Hinweis: Der Prozess läuft nur in deinem aktuellen Fenster. In einem anderen Browser-Tab
+siehst du ihn nicht, denn jedes Fenster ist ein eigener Container.

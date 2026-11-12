@@ -166,8 +166,8 @@
     mode: '0400'
   loop: "{{ ssh_jailed_users }}"
 
-# Aufgabe 15; nicht lesbaren Ordner lesbar machen
-# Der Ordner 15 und die Texte gehören dem User, der Unterordner root (0700).
+# Aufgabe 15; nicht lesbaren Ordner lesbar machen (Planktons Labor)
+# Der Ordner 15 und die Texte gehören dem User, das Labor root (0700).
 # Getrennt von der allgemeinen Kopie, weil diese sonst bei jedem Lauf die
 # Besitzer zurück auf den User setzt (nicht idempotent, und eine bereits
 # gelöste Aufgabe wäre wieder "ungelöst").
@@ -193,10 +193,10 @@
     - ['aufgabe', 'tipp1', 'tipp2', 'tipp3']
     - "{{ ssh_jailed_users }}"
 
-- name: Lege Unterordner für Aufgabe 15 ab (gehört root, nicht lesbar)
+- name: Lege Planktons Labor für Aufgabe 15 ab (gehört root, nicht lesbar)
   tags: ['teil2', 'never']
   ansible.builtin.copy:
-    src: "{{ src_dir }}/15/unterordner"
+    src: "{{ src_dir }}/15/labor"
     dest: "/home/{{ item }}/schnitzeljagd/15/"
     owner: root
     group: root
@@ -205,11 +205,11 @@
     force: false
   loop: "{{ ssh_jailed_users }}"
 
-# Aufgabe 17; Datei die keinem User und keiner Gruppe gehört
+# Aufgabe 17; Datei die keinem User und keiner Gruppe gehört (Fundbüro)
 - name: Passe Datei an für Aufgabe 17
   tags: ['teil2', 'never']
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/17/unterordner/Lorem/4/9/10/sometest"
+    path: "/home/{{ item }}/schnitzeljagd/17/fundbuero/regal_4/kiste_9/fach_10/einzelne_socke"
     owner: 500
     group: 500
   loop: "{{ ssh_jailed_users }}"
@@ -232,12 +232,12 @@
     - "{{ pro + sidequests }}"
     - "{{ ssh_jailed_users }}"
 
-# pro_06: Datei gehört dem User, der Ordner ist aber nicht schreibbar ->
+# pro_06: Patricks Stein. Datei gehört dem User, der Ordner ist aber nicht schreibbar ->
 # Löschen scheitert, obwohl man Besitzer der Datei ist.
 - name: Ordner ohne Schreibrecht für pro_06
   tags: ['pro', 'never']
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/pro_06/unterordner"
+    path: "/home/{{ item }}/schnitzeljagd/pro_06/stein"
     state: directory
     owner: "{{ item }}"
     group: "{{ exercise_group }}"
@@ -253,7 +253,7 @@
 # Lauf "changed", weil es "+i" mit z.B. "ie" vergleicht.)
 - name: Prüfe Attribute der Datei für pro_07
   tags: ['pro', 'never']
-  ansible.builtin.command: "lsattr /home/{{ item }}/schnitzeljagd/pro_07/datei"
+  ansible.builtin.command: "lsattr /home/{{ item }}/schnitzeljagd/pro_07/erster_dollar"
   register: pro07_lsattr
   changed_when: false
   check_mode: false
@@ -262,7 +262,7 @@
 
 - name: Unveränderliche Datei für pro_07
   tags: ['pro', 'never']
-  ansible.builtin.command: "chattr +i /home/{{ item.item }}/schnitzeljagd/pro_07/datei"
+  ansible.builtin.command: "chattr +i /home/{{ item.item }}/schnitzeljagd/pro_07/erster_dollar"
   loop: "{{ pro07_lsattr.results }}"
   loop_control:
     label: "{{ item.item }}"
@@ -271,10 +271,40 @@
     - "'i' not in item.stdout.split()[0]"
   changed_when: true
 
-# pro_08: Skript muss direkt startbar sein (./qualle.sh &)
-- name: Ausführbares Skript für pro_08
+# Lösungsdatei für das Lösungswort der Zusatzaufgaben pro_11 bis pro_18
+- name: Lösungsdatei für die Zusatzaufgaben
+  tags: ['pro', 'never']
+  ansible.builtin.copy:
+    src: "{{ src_dir }}/{{ pro_solution_file }}"
+    dest: "/home/{{ item }}/schnitzeljagd/{{ pro_solution_file }}"
+    owner: "{{ item }}"
+    group: "{{ exercise_group }}"
+    mode: '0644'
+    force: false
+  loop: "{{ ssh_jailed_users }}"
+
+# Skripte, die direkt startbar sein müssen (./qualle.sh, ./thaddaeus_uebt, ...)
+- name: Ausführbare Skripte der Zusatzaufgaben
   tags: ['pro', 'never']
   ansible.builtin.file:
-    path: "/home/{{ item }}/schnitzeljagd/pro_08/qualle.sh"
+    path: "/home/{{ item[1] }}/schnitzeljagd/{{ item[0] }}"
     mode: '0755'
-  loop: "{{ ssh_jailed_users }}"
+  with_nested:
+    - "{{ pro_executables }}"
+    - "{{ ssh_jailed_users }}"
+
+# pro_15: Mrs. Puffs Boot (mrs_puffs_boot) ist im Repo NICHT ausführbar und
+# steht deshalb nicht in pro_executables - chmod +x ist die Aufgabe.
+
+# pro_14: alte Änderungsdaten für die Krabbenburger. Der frische Burger
+# (Nr. 08) behält die Zeit des Ausbringens (copy setzt die aktuelle Zeit).
+- name: Alte Krabbenburger auf dem Grill (pro_14)
+  tags: ['pro', 'never']
+  ansible.builtin.file:
+    path: "/home/{{ item[1] }}/schnitzeljagd/pro_14/grill/{{ item[0].key }}"
+    modification_time: "{{ item[0].value }}"
+  with_nested:
+    - "{{ pro14_alte_burger | dict2items }}"
+    - "{{ ssh_jailed_users }}"
+  loop_control:
+    label: "{{ item[1] }}: {{ item[0].key }}"

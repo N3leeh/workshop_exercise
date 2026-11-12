@@ -39,6 +39,7 @@
           - fortune
           - sl
           - e2fsprogs   # lsattr/chattr für pro_07
+          - curl        # pro_18 (Bestellfenster)
         update_cache: true
         install_recommends: false
 

@@ -1,0 +1,12 @@
+Spongebob findet den Weg zur Arbeit nicht
+
+Spongebob will morgens einfach nur "zurarbeit" tippen und dann zur Krossen Krabbe rennen.
+Das Programm dafür gibt es schon: Es liegt im Ordner "wegweiser". Aber egal, wo Spongebob es versucht:
+
+    zurarbeit
+    bash: zurarbeit: Befehl nicht gefunden.
+
+Sorge dafür, dass "zurarbeit" aus jedem Ordner heraus funktioniert, ohne dass du den Pfad
+mit angeben musst. Teste es aus deinem Home-Verzeichnis (cd ~).
+
+Spongebob verrät dir dann den 10. Buchstaben im Lösungswort der Zusatzaufgaben.

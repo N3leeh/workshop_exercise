@@ -1,0 +1,12 @@
+Mr. Krabs' Kassenbuch
+
+Mr. Krabs liebt nur eines mehr als Geld: Geld zählen.
+In der Datei "kassenbuch" steht jede Bestellung in einer Zeile: Datum;Kunde;Betrag in Dollar
+
+1. Welcher Kunde hat den höchsten Betrag bezahlt?
+   Sein Anfangsbuchstabe ist der 7. Buchstabe im Lösungswort der Zusatzaufgaben.
+2. Wer hat die neueste Bestellung aufgegeben (das späteste Datum)?
+   Der Anfangsbuchstabe ist der 1. Buchstabe.
+
+Achtung: Das Kassenbuch ist nicht nach Datum sortiert. Mr. Krabs schreibt, wo gerade Platz ist.
+Lass die Befehle sortieren, nicht dich.
