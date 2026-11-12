@@ -103,6 +103,8 @@ Reihenfolge ausgebracht werden; ein erneuter Lauf ändert nichts und überschrei
 
 Die Start-Dateien werden bei jedem Teil mit angelegt, falls sie noch fehlen.
 
+**Login-Nachricht:** Beim Login begrüßt webtty-playground zunächst nur („Ahoi …, willkommen in Bikini Bottom“), ohne Hinweis auf die Schnitzeljagd. Mit jedem der Befehle oben (schon mit `--tags=start`) kommt der Teil mit dem Verweis auf die Aufgaben dazu (`roles/create-exercises/files/schnitzeljagd.motd` → `/etc/workshop-motd.d/50-schnitzeljagd.motd`). Ohne Hinweis: `-e motd_file=""`.
+
 # Tests
 
 ## Lösungsskript

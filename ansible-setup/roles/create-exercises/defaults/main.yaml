@@ -12,6 +12,11 @@ exercise_group: users
 # Dateien, die zu Beginn des Workshops (Tag "start") für alle angelegt werden
 etc_files: ['00_readme.md', '00_solution', '00_tipps']
 
+# Teil der Login-Nachricht mit dem Verweis auf die Schnitzeljagd
+# (files/schnitzeljagd.motd). Wird zusammen mit den Aufgaben nach
+# /etc/workshop-motd.d/ kopiert. "" = keinen Hinweis anzeigen.
+motd_file: schnitzeljagd.motd
+
 # Aufgaben je Teil
 teil1: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11']
 teil2: ['12', '13', '14', '15', '16', '17', '18', '19', '20', '21']

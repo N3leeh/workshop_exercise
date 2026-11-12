@@ -40,6 +40,29 @@
     - "{{ etc_files }}"
     - "{{ ssh_jailed_users }}"
 
+# Login-Nachricht: Zu Beginn begrüßt webtty-playground nur ("Ahoi ...,
+# willkommen in Bikini Bottom"). Erst mit den Aufgaben kommt der Teil mit dem
+# Verweis auf die Schnitzeljagd dazu. containerize.sh zeigt alle Dateien
+# /etc/workshop-motd.d/*.motd unter der Begrüßung an.
+- name: Ordner für Teile der Login-Nachricht
+  tags: ['start', 'teil1', 'teil2', 'pro']
+  ansible.builtin.file:
+    path: /etc/workshop-motd.d
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Login-Nachricht um den Hinweis auf die Schnitzeljagd ergänzen
+  tags: ['start', 'teil1', 'teil2', 'pro']
+  ansible.builtin.copy:
+    src: "{{ motd_file }}"
+    dest: /etc/workshop-motd.d/50-schnitzeljagd.motd
+    owner: root
+    group: root
+    mode: '0644'
+  when: motd_file | length > 0
+
 # Teil 1
 ########
 # force: false bei allen Aufgaben-Kopien: Ein erneuter Lauf überschreibt

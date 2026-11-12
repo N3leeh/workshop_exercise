@@ -34,6 +34,11 @@
       loop_control:
         label: "{{ item.item }}"
 
+    - name: Hinweis auf die Schnitzeljagd in der Login-Nachricht
+      tags: ['always']
+      ansible.builtin.command: grep -q "cd schnitzeljagd" /etc/workshop-motd.d/50-schnitzeljagd.motd
+      changed_when: false
+
     - name: Kopiere Lösungsskript
       tags: ['always']
       ansible.builtin.copy:
