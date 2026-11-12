@@ -1,5 +1,9 @@
 Tipp:
 
-Es gibt einen Befehl, der Weisheiten und Zukunftsvorhersagen ausgibt,
-und einen, der eine Kuh etwas sagen lässt. Beide liegen unter /usr/games.
+Es gibt einen Befehl, der Weisheiten und Zukunftsvorhersagen ausgibt ("fortune"),
+und einen, der eine Kuh etwas sagen lässt ("cowsay").
+
 Wie kannst du die Ausgabe des einen an den anderen weitergeben?
+
+Falls die Shell "Befehl nicht gefunden" meldet: Beide liegen im Ordner /usr/games.
+Du kannst sie mit dem vollständigen Pfad aufrufen, z.B. /usr/games/cowsay Muh

@@ -1,20 +1,27 @@
 Patrick will sein Zimmer unter dem Stein ausräumen. Und zwar komplett:
 das Zimmer, alle Kisten darin und alles, was in den Kisten liegt.
 
+In diesem Ordner findest du Patricks Zimmer, den Ordner "zimmer".
+Schau dich erst einmal um, was darin alles herumliegt (ls, cd).
+
+Dann hilf Patrick beim Ausräumen und lösche den Ordner "zimmer" mit allem, was darin ist.
+Probiere zuerst einfach:
+
+rm zimmer
+
+Das klappt nicht. Auch "rmdir zimmer" hilft nicht weiter. Warum?
+
 Wie du bereits aus den vorherigen Aufgaben weißt, kannst du die meisten Befehle mit
-bestimmten Buchstaben (Parametern) aufrufen.
+bestimmten Buchstaben (Parametern) aufrufen. "rm" braucht einen Parameter, damit es nicht
+nur eine Datei, sondern auch alle Unterordner samt Inhalt löscht:
 
-Der 16. Buchstabe des Lösungswortes ist der Buchstabe (Parameter), den Patrick beim Befehl "rm"
-verwenden muss, damit nicht nur eine Datei, sondern auch alle Unterordner samt Inhalt gelöscht werden.
+rm -? zimmer
 
-Beispielsweise:
+Statt dem Fragezeichen muss der gesuchte Buchstabe stehen.
+Dieser Buchstabe (Parameter) ist der 16. Buchstabe des Lösungswortes.
 
-rm -? /home/patrick/zimmer/
-
-Dieser Befehl soll alles entfernen, auch die Unterordner (die Kisten). Statt dem Fragezeichen
-muss der gesuchte Buchstabe eingefügt werden.
-
-Probiere den Befehl hier bitte NICHT aus, sonst ist Patricks Zimmer wirklich weg :)
+Vorsicht: Mit diesem Parameter fragt rm nicht nach und es gibt keinen Papierkorb.
+Weg ist weg! Hier ist das egal, aber auf einem echten Server lieber zweimal hinschauen.
 
 Falls du nicht weiterkommst, schau dir die Tipps an.
 

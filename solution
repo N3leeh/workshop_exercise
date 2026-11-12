@@ -36,7 +36,7 @@ Nocturnal Monster Puppy
 (verschiedene Lösungswege möglich)
 1. grep "Geheimzutat Nr. 1" logbuch
 2. mv spongebob/krabbenburger patrick/
-3. man rm
+3. rm zimmer und rmdir zimmer scheitern; man rm; rm -r zimmer
 4. cd bikini_bottom; ls > text; cat -n text   (34. Eintrag: strandgut)
 5. id 0
 6. ls -al; cat .krabbenburgergeheimrezept

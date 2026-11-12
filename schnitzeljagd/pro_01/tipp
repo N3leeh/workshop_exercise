@@ -1,7 +1,19 @@
 Tipp:
 
-Schau dir die Rechte der Datei mit "ls -l /usr/bin/passwd" genau an.
-An der Stelle, an der normalerweise ein "x" steht, findest du einen anderen Buchstaben.
+Schau dir die Rechte der Datei mit "ls -l /usr/bin/passwd" genau an und vergleiche sie
+mit einem ganz normalen Programm, zum Beispiel "ls -l /usr/bin/ls".
+
+Die ersten zehn Zeichen sind so aufgebaut:
+
+    -  rwx  r-x  r-x
+    |   |    |    |
+    |   |    |    +-- Rechte für alle anderen (others)
+    |   |    +------- Rechte für die Gruppe (group)
+    |   +------------ Rechte für den Besitzer (user)
+    +---------------- Dateityp (- = normale Datei, d = Ordner, l = Link)
+
+Bei /usr/bin/passwd steht beim BESITZER (also im ersten rwx-Block, viertes Zeichen)
+statt "x" ein "s". Wem gehört die Datei? (dritte Spalte von "ls -l")
 
 Überlege: Das Passwort wird in /etc/shadow gespeichert. Wem gehört diese Datei
 und wer darf hineinschreiben? Wie kann dann ein normaler User sein eigenes Passwort ändern?

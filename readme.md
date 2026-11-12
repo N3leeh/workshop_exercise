@@ -51,7 +51,7 @@ Alle Aufgaben spielen in Bikini Bottom: Plankton hat das Lösungswort gestohlen,
 ## Teil 1
 1. Finde einen String in einer Datei (grep)
 2. Verschiebe eine Datei (mv)
-3. Finde einen Parameter für einen Befehl (man)
+3. Patricks Zimmer ausräumen: Ordner rekursiv löschen (rm, rmdir, rm -r, man)
 4. Erstelle eine Liste von Dateien, schreibe sie in eine Datei und nummeriere die Ausgabe (redirection, cat oder less)
 5. Welcher User hat die UID 0? (id, getent passwd)
 6. Versteckte Datei finden und lesen (ls -al)

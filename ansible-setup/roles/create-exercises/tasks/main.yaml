@@ -152,6 +152,9 @@
     dest: "/home/{{ item }}/schnitzeljagd/12/unterordner/bestellung_7"
     state: link
     force: true
+    # follow: false = Besitzer des Links selbst setzen (sonst gehört er root
+    # und fällt in "ls -l" sofort auf)
+    follow: false
     owner: "{{ item }}"
     group: "{{ exercise_group }}"
   loop: "{{ ssh_jailed_users }}"

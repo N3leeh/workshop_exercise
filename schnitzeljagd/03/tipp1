@@ -1,3 +1,6 @@
-Tipp 1: 
+Tipp 1:
 
-Der Fachbegriff um alles, auch Unterordner und enthaltene Dateien zu löschen heißt rekursives löschen.
+"rm" löscht ohne weitere Parameter nur Dateien, keine Ordner.
+"rmdir" löscht nur leere Ordner. Patricks Zimmer ist aber alles andere als leer.
+
+Der Fachbegriff dafür, alles zu löschen, auch Unterordner und enthaltene Dateien, heißt rekursives Löschen.

@@ -1,7 +1,18 @@
 Tipp:
 
-Mit "find" kannst du auch nach Berechtigungen suchen. Schau in der Manpage
-von find nach der Option "-perm" (mit "/" kannst du in der Manpage suchen).
+Das "s" an der Stelle des "x" beim Besitzer (rwsr-xr-x, viertes Zeichen) ist das SUID-Bit.
+Wie es genau heißt und was es bedeutet, steht z.B. in "man chmod" (suche mit "/" nach "set-user-ID").
+
+Zahlen statt Buchstaben: Rechte kann man auch als Zahl schreiben, z.B. 755 für rwxr-xr-x.
+Die Sonderrechte stehen davor als vierte Ziffer:
+    4000 = SUID (s beim Besitzer)
+    2000 = SGID (s bei der Gruppe)
+    1000 = Sticky-Bit (t bei allen anderen, z.B. bei /tmp)
+/usr/bin/passwd hat also 4755.
+
+Mit "find" kannst du auch nach Berechtigungen suchen: Option "-perm" in der Manpage von find.
+"-perm -4000" findet alle Dateien, bei denen MINDESTENS das SUID-Bit gesetzt ist
+(egal, welche anderen Rechte sie noch haben). Lesbarer geht es auch mit "-perm -u+s".
 
 Du wirst viele Fehlermeldungen ("Permission denied") sehen.
 Wie kannst du die Fehlerausgabe verschwinden lassen? (siehe auch pro_04)

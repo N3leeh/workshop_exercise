@@ -102,6 +102,12 @@ teil_1() {
     if [ -e 02/patrick/krabbenburger ] && [ ! -e 02/spongebob/krabbenburger ]; then b=m; else b=""; fi
     pruefe 02 10 "$b" "mv spongebob/krabbenburger patrick/"
 
+    # 03: Patricks Zimmer: rm und rmdir scheitern, rm -r klappt
+    check 03a "rm zimmer scheitert"    "! rm 03/zimmer"
+    check 03b "rmdir zimmer scheitert" "! rmdir 03/zimmer"
+    rm -r 03/zimmer
+    check 03c "rm -r hat das Zimmer ausgeräumt" "[ ! -e 03/zimmer ]"
+
     # 03: rm rekursiv -> Parameter r (Manpage muss das hergeben)
     if timeout $TO man rm 2>/dev/null | grep -qE -- '-r, -R, --recursive'; then b=r; else b=""; fi
     pruefe 03 16 "$b" "man rm zeigt -r"
@@ -161,6 +167,8 @@ teil_2() {
     zahl=${name##*_}
     if [[ "$zahl" =~ ^[0-9]+$ ]]; then pruefe 12 "$zahl" "${LOESUNG:0:1}" "$name (gleicher Buchstabe wie Pos 1)"
     else pruefe 12 7 "" "keine abweichende Datei gefunden"; fi
+
+    check 12a "Softlink gehört dem User wie die anderen Dateien" "[ \"\$(stat -c %U 12/unterordner/bestellung_7)\" = \"\$(id -un)\" ]"
 
     # 13: Gruppe aller Teilnehmer -> 5. Buchstabe
     local gr
