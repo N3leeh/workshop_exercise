@@ -49,9 +49,17 @@
         dest: /etc/sudoers.d/workshop
         content: |
           %users ALL=(ALL) NOPASSWD:ALL
-          Set disable_coredump false
         mode: '0440'
         validate: 'visudo -cf %s'
+
+    # Gehört in /etc/sudo.conf, NICHT in eine sudoers-Datei (wie im Jail-Image)
+    - name: sudo ohne setrlimit-Warnung
+      tags: ['always']
+      ansible.builtin.lineinfile:
+        path: /etc/sudo.conf
+        line: Set disable_coredump false
+        create: true
+        mode: '0644'
 
     # Wie webtty-playground: primäre Gruppe jailed, zusätzlich users
     - name: Gruppe jailed
