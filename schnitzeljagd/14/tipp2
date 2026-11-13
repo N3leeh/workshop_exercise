@@ -1,3 +1,4 @@
+
 Tipp 2:
 
 Mit "sudo" kannst du Befehle mit den Rechten des Users "root" auszuführen.
@@ -5,3 +6,4 @@ Mit "sudo" kannst du Befehle mit den Rechten des Users "root" auszuführen.
 Bsp:
 
 sudo ls
+

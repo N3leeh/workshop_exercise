@@ -1,3 +1,4 @@
+
 Spongebob und Patrick haben beim Quallenfischen ein Lied gesungen und Sandy hat mitgeschrieben.
 Leider hat sie dabei keine einzige neue Zeile angefangen: In der Datei steht ein seeehr langer
 String, alle Wörter nur durch Kommas getrennt.
@@ -6,5 +7,6 @@ Tausche bei dem String alle Kommas durch Newlines (Zeilenumbrüche).
 Anschließend sortiere die Ausgabe und zähle, wie oft welches Wort vorkommt.
 Fast alle Wörter haben die beiden ständig wiederholt, nur ein Wort kommt genau einmal vor.
 
-Der letzte Buchstabe dieses Wortes ist der Lösungsbuchstabe. Er steht an der zwölften Stelle.
+Der letzte Buchstabe dieses Wortes ist der Lösungsbuchstabe. Er steht an der 12. Stelle.
 Nutze Pipes, um die Ausgabe entsprechend anzupassen.
+

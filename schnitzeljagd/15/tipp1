@@ -1,4 +1,6 @@
+
 Tipp 1:
 
 Um dich als Besitzer des Labors einzutragen, verwende den Befehl chown rekursiv:
 Beispiel: sudo chown -R deinNutzername:deineGruppe labor
+

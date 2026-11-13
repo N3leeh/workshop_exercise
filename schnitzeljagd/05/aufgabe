@@ -1,6 +1,8 @@
+
 Ahoi, Matrose! Auf jedem Schiff gibt es einen Kapitän, der alles darf.
 
 Auf einem Linux-System ist das der User mit der UID 0.
 Wer ist der Kapitän dieses Schiffs? Wie heißt also der User mit der UID 0?
 
-Der zweite Buchstabe des Usernamens steht an der elften Stelle der Lösung.
+Der 2. Buchstabe des Usernamens steht an der 11. Stelle der Lösung.
+

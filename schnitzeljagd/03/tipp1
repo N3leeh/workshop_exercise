@@ -1,6 +1,8 @@
+
 Tipp 1:
 
 "rm" löscht ohne weitere Parameter nur Dateien, keine Ordner.
 "rmdir" löscht nur leere Ordner. Patricks Zimmer ist aber alles andere als leer.
 
 Der Fachbegriff dafür, alles zu löschen, auch Unterordner und enthaltene Dateien, heißt rekursives Löschen.
+

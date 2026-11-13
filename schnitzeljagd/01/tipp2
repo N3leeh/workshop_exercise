@@ -1,3 +1,4 @@
+
 Tipp 2:
 
 Mit dem Befehl "grep" kannst du nach Inhalten in Dateien suchen.
@@ -7,3 +8,4 @@ Je genauer dein Suchbegriff ist, desto weniger Zeilen bekommst du.
 Enthält dein Suchbegriff Leerzeichen, setze ihn in Anführungszeichen.
 
 Wenn du nicht genau weißt wie, schaue dir die Manpage von "grep" an, oder versuche es mit "--help".
+

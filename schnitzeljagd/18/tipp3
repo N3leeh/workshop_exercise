@@ -1,6 +1,7 @@
+
 Tipp 3:
 
-Du kannst Befehle auf verschiedene Arten mit einander kombinieren. 
+Du kannst Befehle auf verschiedene Arten mit einander kombinieren.
 
 1. Redirection
 Du kannst die Ausgabe eines Befehls in eine Datei schreiben mit ">"
@@ -11,3 +12,4 @@ Beispiel: ls ~ > datei
 Du kannst die Ausgabe eines Befehls direkt einem anderen Befehl übergeben mit "|"
 
 Beispiel: cat meintext | grep "suchstring"
+

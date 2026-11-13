@@ -1,6 +1,8 @@
+
 Tipp 2:
 
-Du kannst in den Manpages auch suchen. 
-man -k stichwort 
+Du kannst in den Manpages auch suchen.
+man -k stichwort
 
 Der Befehl hat auch eine Usage-Message.
+

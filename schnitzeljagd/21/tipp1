@@ -1,3 +1,4 @@
+
 Tipp 1:
 
 Um auf einen anderen User zu wechseln gibt es zwei Möglichkeiten.
@@ -8,3 +9,4 @@ Es ist daher einfacher und besser mit Hilfe von sudo zu einem anderen User zu we
 Dazu nutzt du: "sudo -i -u username", wobei du natürlich username durch den entsprechenden Namen ersetzen musst.
 
 Um dich wieder abzumelden und zurück zu kommen kannst du einfach exit eingeben oder "strg + d" drücken.
+
